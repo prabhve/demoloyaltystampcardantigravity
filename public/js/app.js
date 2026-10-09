@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   const elScratchCanvas = document.getElementById('scratchCanvas');
   const elScratchCardUnderlay = document.getElementById('scratchCardUnderlay');
   const elScratchInstruction = document.getElementById('scratchInstruction');
+  const elScratchPercentBadge = document.getElementById('scratchPercentBadge');
+  const elQuickRevealBtn = document.getElementById('quickRevealBtn');
+  const elNextVisitBtn = document.getElementById('nextVisitBtn');
+  const elNextVisitBtnText = document.getElementById('nextVisitBtnText');
+  const elResetStampsBtn = document.getElementById('resetStampsBtn');
   const elCouponList = document.getElementById('couponList');
   const elMyCouponsCount = document.getElementById('myCouponsCount');
   const elRegModal = document.getElementById('registrationModal');
@@ -127,10 +132,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         currentCustomer = data.customer;
         onCustomerLoggedIn(true);
       } else {
+        await setupScratchCard(true);
         showRegistrationModal();
       }
     } catch (err) {
       console.error('Verify device error:', err);
+      await setupScratchCard(true);
       showRegistrationModal();
     }
   }
@@ -308,32 +315,134 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // 5. Setup Interactive Scratch Card
-  function setupScratchCard() {
+  // 5. Setup Interactive Scratch Card with Pre-Loaded Underlay & Dynamic Controls
+  let currentPreparedReward = null;
+
+  async function setupScratchCard(isDemo = false) {
     if (!elScratchCanvas || !elScratchCardUnderlay) return;
 
+    try {
+      // Pre-load the exact reward that sits underneath the golden scratch foil
+      const apiUrl = currentCustomer && !isDemo
+        ? `/api/customer/${currentCustomer.id}/scratch-card?biz=${bizSlug}`
+        : `/api/public/demo-scratch?biz=${bizSlug}`;
+
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      
+      if (data.success && data.prepared) {
+        currentPreparedReward = data.prepared;
+      } else {
+        currentPreparedReward = {
+          isMega: false,
+          nextStamp: currentCustomer ? Math.min(6, (currentCustomer.stamps || 0) + 1) : 1,
+          stampsRemaining: currentCustomer ? Math.max(0, 6 - (currentCustomer.stamps || 0) - 1) : 5,
+          reward: {
+            title: 'Flat 15% OFF',
+            badge: '🎉 Instant Discount',
+            icon: 'fa-percent',
+            description: 'Enjoy 15% off on your bill today!',
+            code: 'ROYAL15-DEMO',
+            isWaste: false
+          }
+        };
+      }
+    } catch (err) {
+      console.warn('Could not pre-fetch scratch reward, using default:', err);
+      currentPreparedReward = {
+        isMega: false,
+        nextStamp: 1,
+        stampsRemaining: 5,
+        reward: {
+          title: 'Flat 15% OFF',
+          badge: '🎉 Instant Discount',
+          icon: 'fa-percent',
+          description: 'Enjoy 15% off on your bill today!',
+          code: 'ROYAL15-DEMO',
+          isWaste: false
+        }
+      };
+    }
+
+    const prep = currentPreparedReward;
+    const r = prep.reward;
+    const isMega = prep.isMega;
+    const isWaste = r.isWaste;
+
+    // Render REAL Underlay Card Underneath Foil
     elScratchCardUnderlay.innerHTML = `
-      <div class="h-full w-full flex flex-col items-center justify-center text-center p-4 bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-red-500/10 rounded-2xl border border-amber-200">
-        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mb-2 animate-bounce">
-          <i class="fa-solid fa-gift text-2xl"></i>
+      <div class="h-full w-full flex flex-col items-center justify-center text-center p-3 sm:p-4 ${
+        isMega
+          ? 'bg-gradient-to-br from-amber-400 via-orange-500 to-amber-600 text-white'
+          : isWaste
+          ? 'bg-gradient-to-br from-slate-50 via-amber-50 to-orange-50 text-slate-800'
+          : 'bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 text-slate-900'
+      } rounded-2xl border-2 ${isMega ? 'border-yellow-300 shadow-lg' : 'border-amber-300'} relative overflow-hidden select-none">
+        
+        <div class="flex items-center space-x-1.5 mb-1">
+          <span class="inline-block ${
+            isMega ? 'bg-red-600 text-white animate-bounce' : isWaste ? 'bg-amber-200 text-amber-900' : 'bg-emerald-500 text-white'
+          } text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-xs tracking-wider">
+            ${r.badge || (isMega ? '🏆 50% GRAND BUMPER' : isWaste ? '🍀 VISIT STAMP +1' : '🎁 MYSTERY OFFER')}
+          </span>
+          <span class="text-[10px] font-bold ${isMega ? 'text-yellow-200' : 'text-slate-500'}">
+            Visit #${prep.nextStamp}/6
+          </span>
         </div>
-        <h4 class="font-extrabold text-slate-800 text-base" id="prizeTitle">Scratching Prize...</h4>
-        <p class="text-xs text-slate-500 mt-1" id="prizeDesc">Scratch above to uncover your prize!</p>
-        <div class="mt-3 py-1.5 px-4 bg-white/80 rounded-xl border border-amber-300 text-amber-800 font-mono text-xs font-bold tracking-widest hidden" id="prizeCode">
-          XXXX-XXXX
+
+        <div class="w-10 h-10 ${isMega ? 'bg-white/20 text-yellow-200' : isWaste ? 'bg-amber-100 text-amber-600' : 'bg-orange-100 text-orange-600'} rounded-2xl flex items-center justify-center mb-1 text-xl shadow-xs">
+          <i class="fa-solid ${r.icon || (isMega ? 'fa-trophy' : isWaste ? 'fa-clover' : 'fa-gift')}"></i>
         </div>
+
+        <h4 class="font-black text-sm sm:text-base tracking-tight leading-tight ${isMega ? 'text-white' : 'text-slate-900'}">
+          ${r.title}
+        </h4>
+        
+        <p class="text-[11px] ${isMega ? 'text-amber-100' : 'text-slate-500'} mt-0.5 line-clamp-1 max-w-xs">
+          ${r.description}
+        </p>
+
+        ${r.code ? `
+          <div class="mt-2 py-1 px-3.5 bg-white/95 rounded-xl border border-amber-300 text-amber-900 font-mono text-xs font-black tracking-widest shadow-xs flex items-center space-x-1.5">
+            <i class="fa-solid fa-ticket text-amber-500 text-[10px]"></i>
+            <span>${r.code}</span>
+          </div>
+        ` : `
+          <div class="mt-1 text-[10px] ${isMega ? 'text-amber-200' : 'text-amber-800'} font-semibold">
+            ${isWaste ? '🍀 Visit recorded! Collect all 5 stamps for 50% Off' : '✨ Offer unlocked & ready to claim!'}
+          </div>
+        `}
       </div>
     `;
 
+    // Reset instruction & badge
+    if (elScratchPercentBadge) elScratchPercentBadge.textContent = '0% Uncovered';
+    if (elScratchInstruction) {
+      elScratchInstruction.innerHTML = 'Scratch the golden card below with your finger or mouse! ✨';
+    }
+
+    if (elQuickRevealBtn) {
+      elQuickRevealBtn.classList.remove('hidden');
+      elQuickRevealBtn.classList.add('flex');
+    }
+    if (elNextVisitBtn) {
+      elNextVisitBtn.classList.add('hidden');
+      elNextVisitBtn.classList.remove('flex');
+    }
+
+    // Initialize or Reset Canvas Foil
     if (activeScratchInstance) {
       activeScratchInstance.reset();
     } else {
       activeScratchInstance = new ScratchCard(elScratchCanvas, {
-        scratchSize: 34,
-        revealThreshold: 38,
+        scratchSize: 38,
+        revealThreshold: 35,
         onScratchProgress: (percent) => {
+          if (elScratchPercentBadge) {
+            elScratchPercentBadge.textContent = `${percent}% Uncovered`;
+          }
           if (elScratchInstruction) {
-            elScratchInstruction.innerHTML = `<span class="text-amber-600 font-bold">${percent}%</span> scratched! Keep going!`;
+            elScratchInstruction.innerHTML = `<span class="text-amber-700 font-bold">${percent}%</span> scratched! Keep going! ✨`;
           }
         },
         onComplete: async () => {
@@ -344,7 +453,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function handleScratchComplete() {
-    if (!currentCustomer) return;
+    if (!currentCustomer) {
+      // Guest attempted scratch -> Invite to register and claim
+      if (currentPreparedReward) {
+        showToast(`🎁 You revealed ${currentPreparedReward.reward.title}! Register now to claim it.`, 'info', 5000);
+      }
+      showRegistrationModal();
+      return;
+    }
 
     try {
       const res = await fetch(`/api/customer/${currentCustomer.id}/scratch`, {
@@ -369,59 +485,101 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderStamps(data.stamps);
       renderCoupons(currentCustomer.wonCoupons || []);
 
+      if (elScratchPercentBadge) elScratchPercentBadge.textContent = '100% Revealed 🎉';
+      if (elQuickRevealBtn) elQuickRevealBtn.classList.add('hidden');
+      if (elNextVisitBtn) {
+        elNextVisitBtn.classList.remove('hidden');
+        elNextVisitBtn.classList.add('flex');
+        if (elNextVisitBtnText) {
+          elNextVisitBtnText.textContent = data.stamps >= 6
+            ? 'Start New 6-Stamp Cycle'
+            : `Scratch Next Visit (Stamp #${data.stamps + 1})`;
+        }
+      }
+
       const reward = data.reward;
-      const titleEl = document.getElementById('prizeTitle');
-      const descEl = document.getElementById('prizeDesc');
-      const codeEl = document.getElementById('prizeCode');
 
       if (data.isMega) {
-        activeScratchInstance.playWinChime();
+        if (activeScratchInstance) activeScratchInstance.playWinChime();
         triggerConfetti(true);
 
-        if (titleEl) titleEl.textContent = '🏆 GRAND BUMPER WINNER!';
-        if (descEl) descEl.textContent = data.reward.description;
-        if (codeEl) {
-          codeEl.textContent = data.reward.code;
-          codeEl.classList.remove('hidden');
-        }
         if (elScratchInstruction) {
-          elScratchInstruction.innerHTML = '🎉 <span class="text-emerald-600 font-bold">ALL 6 STAMPS COMPLETED! GRAND PRIZE UNLOCKED!</span>';
+          elScratchInstruction.innerHTML = '🎉 <span class="text-emerald-600 font-black">ALL 6 STAMPS COMPLETED! GRAND 50% BUMPER CLAIMED!</span>';
         }
 
         setTimeout(() => {
           showMegaOfferModal(data.reward);
-        }, 600);
+        }, 500);
 
       } else if (reward.isWaste) {
-        activeScratchInstance.playRetrySound();
-        if (titleEl) titleEl.textContent = '🍀 Better Luck Next Time!';
-        if (descEl) descEl.textContent = reward.description;
-        if (codeEl) codeEl.classList.add('hidden');
+        if (activeScratchInstance) activeScratchInstance.playRetrySound();
         if (elScratchInstruction) {
-          elScratchInstruction.innerHTML = `🍀 Stamp #${data.stamps} added! <span class="font-bold text-amber-700">${data.stampsRemaining} more to Grand Offer!</span>`;
+          elScratchInstruction.innerHTML = `🍀 Stamp #${data.stamps} added! <span class="font-bold text-amber-700">${data.stampsRemaining} more visits to 50% Grand Bumper!</span>`;
         }
-        showToast(`Stamp #${data.stamps} added! Keep visiting to win the 50% Grand Bumper!`, 'info');
+        showToast(`Stamp #${data.stamps} added! Keep visiting for the 50% Grand Bumper!`, 'info');
 
       } else {
-        activeScratchInstance.playWinChime();
+        if (activeScratchInstance) activeScratchInstance.playWinChime();
         triggerConfetti(false);
 
-        if (titleEl) titleEl.textContent = `🎉 You Won: ${reward.title}`;
-        if (descEl) descEl.textContent = reward.description;
-        if (codeEl && reward.code) {
-          codeEl.textContent = reward.code;
-          codeEl.classList.remove('hidden');
-        }
         if (elScratchInstruction) {
-          elScratchInstruction.innerHTML = `🎁 <span class="text-emerald-600 font-bold">${reward.title}</span> unlocked! Stamp #${data.stamps}/6 collected!`;
+          elScratchInstruction.innerHTML = `🎁 <span class="text-emerald-600 font-bold">${reward.title}</span> claimed! Stamp #${data.stamps}/6 recorded!`;
         }
-        showToast(`Congratulations! You won ${reward.title}!`, 'success');
+        showToast(`Congratulations! You claimed ${reward.title}!`, 'success');
       }
 
     } catch (err) {
       console.error('Scratch reveal failed:', err);
       showToast('Error claiming reward.', 'error');
     }
+  }
+
+  async function resetStampsCycle() {
+    if (!currentCustomer) {
+      await setupScratchCard(true);
+      return;
+    }
+    try {
+      const res = await fetch(`/api/customer/${currentCustomer.id}/reset-stamps?biz=${bizSlug}`, {
+        method: 'POST'
+      });
+      const data = await res.json();
+      if (data.success) {
+        currentCustomer.stamps = 0;
+        renderStamps(0);
+        showToast('Stamps reset to 0! Ready for Visit #1 scratch card.', 'info');
+        await setupScratchCard();
+      }
+    } catch (e) {
+      showToast('Failed to reset stamps.', 'error');
+    }
+  }
+
+  // Bind Scratch Action Buttons
+  if (elQuickRevealBtn) {
+    elQuickRevealBtn.addEventListener('click', () => {
+      if (activeScratchInstance) {
+        activeScratchInstance.reveal();
+      }
+    });
+  }
+
+  if (elNextVisitBtn) {
+    elNextVisitBtn.addEventListener('click', async () => {
+      if (currentCustomer && currentCustomer.stamps >= 6) {
+        await resetStampsCycle();
+      } else {
+        await setupScratchCard();
+      }
+    });
+  }
+
+  if (elResetStampsBtn) {
+    elResetStampsBtn.addEventListener('click', async () => {
+      if (confirm('Reset stamps back to 0 for demo testing?')) {
+        await resetStampsCycle();
+      }
+    });
   }
 
   function renderCoupons(coupons) {

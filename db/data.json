@@ -294,7 +294,7 @@
       "totalGoogleReviews": 120,
       "plan": "pro_bundle",
       "billingCycle": "annual",
-      "adminPin": "4321",
+      "adminPin": "1234",
       "antiCheatEnabled": true,
       "createdAt": "2026-10-09T11:36:31.252Z",
       "megaOffer": {
@@ -367,8 +367,8 @@
         }
       ],
       "reviews": [],
-      "passcodeHash": "869aded383c35c92cfef7b3202c569e6603594c514441fceb637fcdfba725707",
-      "passcodeSalt": "e341fcf72fcd1b5658864bdb61cd9fae"
+      "passcodeHash": "286a65350fe0dc86fa3b97728cb6ee3bc279fe848150c4903f604440424edf64",
+      "passcodeSalt": "ace806c4c80ce67ba74384250ac25c59"
     },
     {
       "id": "biz-1791544863525-840",
@@ -387,7 +387,7 @@
       "totalGoogleReviews": 120,
       "plan": "pro_bundle",
       "billingCycle": "annual",
-      "adminPin": "4321",
+      "adminPin": "1234",
       "antiCheatEnabled": true,
       "createdAt": "2026-10-09T11:21:03.525Z",
       "megaOffer": {
@@ -470,7 +470,9 @@
           ]
         }
       ],
-      "reviews": []
+      "reviews": [],
+      "passcodeHash": "286a65350fe0dc86fa3b97728cb6ee3bc279fe848150c4903f604440424edf64",
+      "passcodeSalt": "ace806c4c80ce67ba74384250ac25c59"
     },
     {
       "id": "biz-1791544077345-562",
@@ -621,8 +623,8 @@
           "createdAt": "2026-10-09T11:52:24.187Z"
         }
       ],
-      "passcodeHash": "611db00f9e3b6c7558a93d747b15fcb2702b8c5c32db418224c12fd55ee6610c",
-      "passcodeSalt": "4affba5b3c1f7ab4d89e8df1ae3d1fc9"
+      "passcodeHash": "286a65350fe0dc86fa3b97728cb6ee3bc279fe848150c4903f604440424edf64",
+      "passcodeSalt": "ace806c4c80ce67ba74384250ac25c59"
     },
     {
       "id": "biz-1791543789901-308",
@@ -641,7 +643,7 @@
       "totalGoogleReviews": 120,
       "plan": "pro_bundle",
       "billingCycle": "annual",
-      "adminPin": "4321",
+      "adminPin": "1234",
       "antiCheatEnabled": true,
       "createdAt": "2026-10-09T11:03:09.901Z",
       "megaOffer": {
@@ -724,7 +726,9 @@
           ]
         }
       ],
-      "reviews": []
+      "reviews": [],
+      "passcodeHash": "286a65350fe0dc86fa3b97728cb6ee3bc279fe848150c4903f604440424edf64",
+      "passcodeSalt": "ace806c4c80ce67ba74384250ac25c59"
     },
     {
       "id": "biz-royal-spice",
@@ -811,6 +815,83 @@
         }
       ],
       "customers": [
+        {
+          "id": "cust-1791548983404-130",
+          "name": "Vikram Singh",
+          "mobile": "9900112233",
+          "dob": "1995-05-10",
+          "address": "Indiranagar",
+          "deviceFingerprint": "fp_test_scratch_engine_1791548983397",
+          "stamps": 6,
+          "visits": 7,
+          "registeredAt": "2026-10-09T12:29:43.404Z",
+          "lastVisit": "2026-10-09T12:29:43.906Z",
+          "wonCoupons": [
+            {
+              "id": "coup-mega-1791548983906",
+              "code": "ROYAL-BUMPER-50-8530",
+              "title": "🏆 VIP BUMPER REWARD: FLAT 50% OFF!",
+              "discount": "FLAT 50% OFF (Max ₹750)",
+              "description": "Congratulations on completing all 5 stamps! Enjoy 50% off on your entire food bill on your next visit.",
+              "terms": "Valid on all dine-in orders above ₹499. One time use only.",
+              "date": "2026-10-09T12:29:43.906Z",
+              "redeemed": false,
+              "isMega": true,
+              "validUntil": "2026-11-08T12:29:43.906Z"
+            },
+            {
+              "id": "coup-1791548983765",
+              "code": "ROYAL100-184",
+              "title": "Flat ₹100 Cashback/Off",
+              "description": "Flat ₹100 deduction on orders above ₹400.",
+              "type": "cashback",
+              "date": "2026-10-09T12:29:43.765Z",
+              "redeemed": false,
+              "isMega": false
+            },
+            {
+              "id": "coup-1791548983695",
+              "code": "BROWNIEFREE-757",
+              "title": "Free Sizzling Brownie 🍨",
+              "description": "Complimentary Hot Sizzling Brownie with Vanilla Ice Cream!",
+              "type": "freebie",
+              "date": "2026-10-09T12:29:43.695Z",
+              "redeemed": false,
+              "isMega": false
+            },
+            {
+              "id": "coup-1791548983632",
+              "code": "ROYAL100-979",
+              "title": "Flat ₹100 Cashback/Off",
+              "description": "Flat ₹100 deduction on orders above ₹400.",
+              "type": "cashback",
+              "date": "2026-10-09T12:29:43.632Z",
+              "redeemed": false,
+              "isMega": false
+            },
+            {
+              "id": "coup-1791548983566",
+              "code": "FLAT15ROYAL-820",
+              "title": "Flat 15% OFF",
+              "description": "Get 15% off on your total food bill today!",
+              "type": "discount",
+              "date": "2026-10-09T12:29:43.566Z",
+              "redeemed": false,
+              "isMega": false
+            },
+            {
+              "id": "coup-1791548983505",
+              "code": "BROWNIEFREE-531",
+              "title": "Free Sizzling Brownie 🍨",
+              "description": "Complimentary Hot Sizzling Brownie with Vanilla Ice Cream!",
+              "type": "freebie",
+              "date": "2026-10-09T12:29:43.505Z",
+              "redeemed": false,
+              "isMega": false
+            }
+          ],
+          "pendingReward": null
+        },
         {
           "id": "cust-1791546657859-212",
           "name": "vfdfd",
@@ -916,8 +997,8 @@
           "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces"
         }
       ],
-      "passcodeHash": "055704a3d16f0eee75da88da98dd1a6c75ee6a9bb6774e31703744b4c2e85df2",
-      "passcodeSalt": "8a556940820fd1e51ddd2daa85b0db94"
+      "passcodeHash": "286a65350fe0dc86fa3b97728cb6ee3bc279fe848150c4903f604440424edf64",
+      "passcodeSalt": "ace806c4c80ce67ba74384250ac25c59"
     },
     {
       "id": "biz-cafe-bliss",
@@ -1038,7 +1119,9 @@
           "relativeTime": "Yesterday",
           "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop&crop=faces"
         }
-      ]
+      ],
+      "passcodeHash": "286a65350fe0dc86fa3b97728cb6ee3bc279fe848150c4903f604440424edf64",
+      "passcodeSalt": "ace806c4c80ce67ba74384250ac25c59"
     },
     {
       "id": "biz-grand-regency",
@@ -1103,7 +1186,9 @@
         }
       ],
       "customers": [],
-      "reviews": []
+      "reviews": [],
+      "passcodeHash": "286a65350fe0dc86fa3b97728cb6ee3bc279fe848150c4903f604440424edf64",
+      "passcodeSalt": "ace806c4c80ce67ba74384250ac25c59"
     },
     {
       "id": "biz-glam-studio",
@@ -1168,7 +1253,9 @@
         }
       ],
       "customers": [],
-      "reviews": []
+      "reviews": [],
+      "passcodeHash": "286a65350fe0dc86fa3b97728cb6ee3bc279fe848150c4903f604440424edf64",
+      "passcodeSalt": "ace806c4c80ce67ba74384250ac25c59"
     }
   ]
 }

@@ -83,20 +83,43 @@
           </span>
         </div>
 
-        <p id="scratchInstruction" class="text-xs text-slate-600 mb-3 text-center">
-          Scratch the golden card below with your finger or mouse to reveal your reward! ✨
-        </p>
+        <div class="flex items-center justify-between mb-2 px-1">
+          <p id="scratchInstruction" class="text-xs text-slate-600 font-medium">
+            Scratch the golden card below with your finger or mouse! ✨
+          </p>
+          <span id="scratchPercentBadge" class="text-[10px] font-bold text-amber-800 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full shrink-0">
+            0% Uncovered
+          </span>
+        </div>
 
         <!-- HTML5 Canvas Scratch Area -->
-        <div class="scratch-container beacon-pulse">
+        <div class="scratch-container beacon-pulse relative">
           <div id="scratchCardUnderlay" class="scratch-underlay">
-            <!-- Dynamic Content populated via app.js -->
+            <!-- Dynamic Real Reward Rendered Underneath in Real-time -->
           </div>
           <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
         </div>
 
+        <!-- Scratch Actions & Controls -->
+        <div class="mt-3 flex items-center justify-between gap-2">
+          <button id="quickRevealBtn" type="button" class="flex-1 py-2 px-3 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-amber-950 font-black rounded-xl text-xs shadow-xs transition flex items-center justify-center space-x-1.5 active:scale-95">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-800 text-xs"></i>
+            <span>⚡ Reveal Now</span>
+          </button>
+          
+          <button id="nextVisitBtn" type="button" class="hidden flex-1 py-2 px-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition items-center justify-center space-x-1.5 shadow-md active:scale-95">
+            <i class="fa-solid fa-gift text-amber-400 text-xs"></i>
+            <span id="nextVisitBtnText">Scratch Next Visit</span>
+          </button>
+
+          <button id="resetStampsBtn" type="button" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl text-xs font-bold transition flex items-center space-x-1 border border-slate-200" title="Reset stamps to 0 (Demo Test)">
+            <i class="fa-solid fa-rotate-right text-xs"></i>
+            <span class="text-[10px]">Reset</span>
+          </button>
+        </div>
+
         <!-- Hint Footer -->
-        <div class="mt-3 text-center">
+        <div class="mt-2.5 text-center">
           <p class="text-[11px] text-amber-800 font-semibold flex items-center justify-center space-x-1">
             <i class="fa-solid fa-sparkles text-amber-500"></i>
             <span>Every scratch adds +1 Stamp towards the 50% Grand Bumper!</span>

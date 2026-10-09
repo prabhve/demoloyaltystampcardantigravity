@@ -197,7 +197,7 @@ const SecurityShield = {
   // LAYER 8: REPLAY ATTACK DEFENSE (NONCE & TIME SKEW WINDOW)
   // ========================================================
   verifyReplayDefense(clientTimestamp, clientNonce) {
-    if (!clientTimestamp) return true; // Optional for backward compatibility
+    if (!clientTimestamp) return { valid: true }; // Optional for backward compatibility
     const now = Date.now();
     const timeDelta = Math.abs(now - Number(clientTimestamp));
 
