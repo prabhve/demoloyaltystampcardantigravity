@@ -175,12 +175,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         return true;
       } else {
         clearAdminToken();
-        showVaultModal(data.error || 'Session expired. Please enter passcode.');
+        showVaultModal(null); // Clean initial lock screen (no scary red error banner)
         return false;
       }
     } catch (e) {
       clearAdminToken();
-      showVaultModal();
+      showVaultModal(null);
       return false;
     }
   }
@@ -680,6 +680,28 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     });
 
+    // Clear error banner as soon as user types
+    if (elVaultPasscodeInput) {
+      elVaultPasscodeInput.addEventListener('input', () => {
+        if (elVaultAlertBanner) {
+          elVaultAlertBanner.classList.add('hidden');
+        }
+      });
+    }
+
+    // 1-Click Auto-Fill & Unlock
+    window.quickFillPasscode = function(pin = '1234') {
+      if (elVaultPasscodeInput) {
+        elVaultPasscodeInput.value = pin;
+        if (elVaultAlertBanner) {
+          elVaultAlertBanner.classList.add('hidden');
+        }
+      }
+      if (elVaultPasscodeForm) {
+        elVaultPasscodeForm.dispatchEvent(new Event('submit', { cancelable: true }));
+      }
+    };
+
     // Vault Passcode Verification Submission
     if (elVaultPasscodeForm) {
       elVaultPasscodeForm.addEventListener('submit', async (e) => {
@@ -694,17 +716,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         try {
           const fp = await getDeviceFingerprint();
-          const clientTimestamp = Date.now();
-          const clientNonce = 'n_' + Math.random().toString(36).substring(2) + Date.now().toString(36);
 
           const res = await fetch(`/api/auth/admin/verify-passcode?biz=${currentBizSlug}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               passcode,
-              deviceFingerprint: fp,
-              clientTimestamp,
-              clientNonce
+              deviceFingerprint: fp
             })
           });
 

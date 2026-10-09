@@ -821,12 +821,54 @@
           "mobile": "9900112233",
           "dob": "1995-05-10",
           "address": "Indiranagar",
-          "deviceFingerprint": "fp_test_scratch_engine_1791548983397",
+          "deviceFingerprint": "fp_test_scratch_engine_1791550084728",
           "stamps": 6,
-          "visits": 7,
+          "visits": 14,
           "registeredAt": "2026-10-09T12:29:43.404Z",
-          "lastVisit": "2026-10-09T12:29:43.906Z",
+          "lastVisit": "2026-10-09T12:48:04.943Z",
           "wonCoupons": [
+            {
+              "id": "coup-mega-1791550084943",
+              "code": "ROYAL-BUMPER-50-7247",
+              "title": "🏆 VIP BUMPER REWARD: FLAT 50% OFF!",
+              "discount": "FLAT 50% OFF (Max ₹750)",
+              "description": "Congratulations on completing all 5 stamps! Enjoy 50% off on your entire food bill on your next visit.",
+              "terms": "Valid on all dine-in orders above ₹499. One time use only.",
+              "date": "2026-10-09T12:48:04.943Z",
+              "redeemed": false,
+              "isMega": true,
+              "validUntil": "2026-11-08T12:48:04.943Z"
+            },
+            {
+              "id": "coup-1791550084920",
+              "code": "BROWNIEFREE-320",
+              "title": "Free Sizzling Brownie 🍨",
+              "description": "Complimentary Hot Sizzling Brownie with Vanilla Ice Cream!",
+              "type": "freebie",
+              "date": "2026-10-09T12:48:04.920Z",
+              "redeemed": false,
+              "isMega": false
+            },
+            {
+              "id": "coup-1791550084896",
+              "code": "BROWNIEFREE-300",
+              "title": "Free Sizzling Brownie 🍨",
+              "description": "Complimentary Hot Sizzling Brownie with Vanilla Ice Cream!",
+              "type": "freebie",
+              "date": "2026-10-09T12:48:04.896Z",
+              "redeemed": false,
+              "isMega": false
+            },
+            {
+              "id": "coup-1791550084770",
+              "code": "FLAT15ROYAL-460",
+              "title": "Flat 15% OFF",
+              "description": "Get 15% off on your total food bill today!",
+              "type": "discount",
+              "date": "2026-10-09T12:48:04.770Z",
+              "redeemed": false,
+              "isMega": false
+            },
             {
               "id": "coup-mega-1791548983906",
               "code": "ROYAL-BUMPER-50-8530",
