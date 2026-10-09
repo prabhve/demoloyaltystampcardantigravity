@@ -1,0 +1,1174 @@
+{
+  "settings": {
+    "restaurantName": "The Royal Spice Bistro",
+    "tagline": "Authentic Flavors, Royal Hospitality & Rewards",
+    "phone": "+91 98765 43210",
+    "address": "Shop 12-14, Gourmet Boulevard, MG Road, New Delhi",
+    "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4",
+    "googlePlaceName": "The Royal Spice Bistro & Cafe",
+    "googleRating": "4.9",
+    "totalGoogleReviews": 1482,
+    "antiCheatEnabled": true,
+    "allowDailyScratchLimit": true
+  },
+  "megaOffer": {
+    "title": "🏆 VIP BUMPER REWARD: FLAT 50% OFF!",
+    "discount": "FLAT 50% OFF (Max ₹750)",
+    "code": "ROYAL-BUMPER-50",
+    "description": "Congratulations on completing all 5 stamps! Enjoy 50% off on your entire food bill on your next visit.",
+    "validDays": 30,
+    "terms": "Valid on all dine-in orders above ₹499. One time use only."
+  },
+  "scratchOffers": [
+    {
+      "id": "off-1",
+      "title": "Flat 15% OFF",
+      "type": "discount",
+      "code": "FLAT15ROYAL",
+      "badge": "🎉 Instant Discount",
+      "description": "Get 15% off on your total food bill today!",
+      "probability": 25,
+      "icon": "fa-percent",
+      "active": true
+    },
+    {
+      "id": "off-2",
+      "title": "Free Royal Mocktail 🍹",
+      "type": "freebie",
+      "code": "FREEDRINK",
+      "badge": "🍹 Free Drink",
+      "description": "Enjoy any gourmet mocktail or fresh lemonade free!",
+      "probability": 20,
+      "icon": "fa-glass-water",
+      "active": true
+    },
+    {
+      "id": "off-3",
+      "title": "Flat ₹100 Cashback/Off",
+      "type": "cashback",
+      "code": "ROYAL100",
+      "badge": "💵 ₹100 Off",
+      "description": "Flat ₹100 deduction on orders above ₹400.",
+      "probability": 15,
+      "icon": "fa-tags",
+      "active": true
+    },
+    {
+      "id": "off-4",
+      "title": "Free Sizzling Brownie 🍨",
+      "type": "freebie",
+      "code": "BROWNIEFREE",
+      "badge": "🍨 Sweet Treat",
+      "description": "Complimentary Hot Sizzling Brownie with Vanilla Ice Cream!",
+      "probability": 15,
+      "icon": "fa-ice-cream",
+      "active": true
+    },
+    {
+      "id": "off-5",
+      "title": "Better Luck Next Time 🍀",
+      "type": "waste",
+      "code": "TRYAGAIN",
+      "badge": "🍀 Keep Stamping!",
+      "description": "No discount this time, but your Stamp has been added! 5 stamps unlock the 50% Grand Offer!",
+      "probability": 25,
+      "icon": "fa-clover",
+      "active": true
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust-1791535631163-538",
+      "name": "ffgsg",
+      "mobile": "7355447311",
+      "dob": "2005-11-16",
+      "address": "sdvsvf",
+      "deviceFingerprint": "fp_c236533d83ff925c0c6cb15c",
+      "stamps": 3,
+      "visits": 4,
+      "registeredAt": "2026-10-09T08:47:11.163Z",
+      "lastVisit": "2026-10-09T10:45:04.958Z",
+      "wonCoupons": [
+        {
+          "id": "coup-1791542704958",
+          "code": "ROYAL100-697",
+          "title": "Flat ₹100 Cashback/Off",
+          "description": "Flat ₹100 deduction on orders above ₹400.",
+          "type": "cashback",
+          "date": "2026-10-09T10:45:04.958Z",
+          "redeemed": false,
+          "isMega": false
+        },
+        {
+          "id": "coup-1791535696859",
+          "code": "FREEDRINK-960",
+          "title": "Free Royal Mocktail 🍹",
+          "description": "Enjoy any gourmet mocktail or fresh lemonade free!",
+          "type": "freebie",
+          "date": "2026-10-09T08:48:16.859Z",
+          "redeemed": false,
+          "isMega": false
+        }
+      ]
+    },
+    {
+      "id": "cust-1791535404756-975",
+      "name": "Aditya Test",
+      "mobile": "9876540001",
+      "dob": "1996-05-20",
+      "address": "Civil Lines, Delhi",
+      "deviceFingerprint": "fp_test_1791535404057",
+      "stamps": 6,
+      "visits": 7,
+      "registeredAt": "2026-10-09T08:43:24.756Z",
+      "lastVisit": "2026-10-09T08:43:24.970Z",
+      "wonCoupons": [
+        {
+          "id": "coup-mega-1791535404969",
+          "code": "ROYAL-BUMPER-50-7014",
+          "title": "🏆 VIP BUMPER REWARD: FLAT 50% OFF!",
+          "discount": "FLAT 50% OFF (Max ₹750)",
+          "description": "Congratulations on completing all 5 stamps! Enjoy 50% off on your entire food bill on your next visit.",
+          "terms": "Valid on all dine-in orders above ₹499. One time use only.",
+          "date": "2026-10-09T08:43:24.970Z",
+          "redeemed": false,
+          "isMega": true,
+          "validUntil": "2026-11-08T08:43:24.970Z"
+        },
+        {
+          "id": "coup-1791535404942",
+          "code": "FREEDRINK-341",
+          "title": "Free Royal Mocktail 🍹",
+          "description": "Enjoy any gourmet mocktail or fresh lemonade free!",
+          "type": "freebie",
+          "date": "2026-10-09T08:43:24.942Z",
+          "redeemed": false,
+          "isMega": false
+        },
+        {
+          "id": "coup-1791535404908",
+          "code": "BROWNIEFREE-100",
+          "title": "Free Sizzling Brownie 🍨",
+          "description": "Complimentary Hot Sizzling Brownie with Vanilla Ice Cream!",
+          "type": "freebie",
+          "date": "2026-10-09T08:43:24.908Z",
+          "redeemed": false,
+          "isMega": false
+        },
+        {
+          "id": "coup-1791535404844",
+          "code": "FLAT15ROYAL-804",
+          "title": "Flat 15% OFF",
+          "description": "Get 15% off on your total food bill today!",
+          "type": "discount",
+          "date": "2026-10-09T08:43:24.844Z",
+          "redeemed": false,
+          "isMega": false
+        },
+        {
+          "id": "coup-1791535404816",
+          "code": "ROYAL100-255",
+          "title": "Flat ₹100 Cashback/Off",
+          "description": "Flat ₹100 deduction on orders above ₹400.",
+          "type": "cashback",
+          "date": "2026-10-09T08:43:24.816Z",
+          "redeemed": false,
+          "isMega": false
+        }
+      ]
+    },
+    {
+      "id": "cust-1",
+      "name": "Rohit Sharma",
+      "mobile": "9876543210",
+      "dob": "1994-06-15",
+      "address": "Sector 14, Gurugram",
+      "deviceFingerprint": "fp_demo_device_1",
+      "stamps": 4,
+      "visits": 4,
+      "lastVisit": "2026-10-07T08:42:32.494Z",
+      "registeredAt": "2026-09-25T08:42:32.495Z",
+      "wonCoupons": [
+        {
+          "code": "FLAT15ROYAL",
+          "title": "Flat 15% OFF",
+          "date": "2026-10-07T08:42:32.495Z",
+          "redeemed": false
+        },
+        {
+          "code": "FREEDRINK",
+          "title": "Free Royal Mocktail",
+          "date": "2026-10-02T08:42:32.495Z",
+          "redeemed": true
+        }
+      ]
+    },
+    {
+      "id": "cust-2",
+      "name": "Pooja Verma",
+      "mobile": "9811223344",
+      "dob": "1998-11-22",
+      "address": "Lajpat Nagar, New Delhi",
+      "deviceFingerprint": "fp_demo_device_2",
+      "stamps": 6,
+      "visits": 6,
+      "lastVisit": "2026-10-08T08:42:32.495Z",
+      "registeredAt": "2026-09-14T08:42:32.495Z",
+      "wonCoupons": [
+        {
+          "code": "ROYAL-BUMPER-50",
+          "title": "🏆 VIP BUMPER: FLAT 50% OFF",
+          "date": "2026-10-08T08:42:32.495Z",
+          "redeemed": false,
+          "isMega": true
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-1791542721535",
+      "customerName": "ffgsg",
+      "rating": 2,
+      "text": "The wait time was longer than anticipated and some dishes were served lukewarm. Hope the management looks into queue and kitchen speed.",
+      "date": "Just now",
+      "relativeTime": "Just now",
+      "avatar": "https://api.dicebear.com/7.x/adventurer/svg?seed=ffgsg",
+      "privateFeedback": null,
+      "createdAt": "2026-10-09T10:45:21.535Z"
+    },
+    {
+      "id": "rev-1791535405000",
+      "customerName": "Aditya Test",
+      "rating": 5,
+      "text": "Had an extraordinary dining experience at The Royal Spice Bistro! The royal flavors, melt-in-mouth starters, and top-tier hospitality made our evening memorable. Highly recommend the chef's special! 10/10 ⭐⭐⭐⭐⭐",
+      "date": "Just now",
+      "relativeTime": "Just now",
+      "avatar": "https://api.dicebear.com/7.x/adventurer/svg?seed=Aditya%20Test",
+      "privateFeedback": null,
+      "createdAt": "2026-10-09T08:43:25.000Z"
+    },
+    {
+      "id": "rev-1",
+      "customerName": "Aman Gupta",
+      "rating": 5,
+      "date": "2 days ago",
+      "text": "The Dal Makhani and Butter Naan were simply divine! Extremely welcoming staff and warm royal vibes. 5/5 stars!",
+      "relativeTime": "2 days ago",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop&crop=faces"
+    },
+    {
+      "id": "rev-2",
+      "customerName": "Sneha Reddy",
+      "rating": 5,
+      "date": "4 days ago",
+      "text": "Loved the scratch card reward! Got a free sizzling brownie and the food quality was exceptional. Will come back with family!",
+      "relativeTime": "4 days ago",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces"
+    },
+    {
+      "id": "rev-3",
+      "customerName": "Vikram Malhotra",
+      "rating": 5,
+      "date": "1 week ago",
+      "text": "Crispy paneer tikka and mocktails are must try! Loved the loyalty stamp concept. Highly recommended restaurant in Delhi.",
+      "relativeTime": "1 week ago",
+      "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&h=100&fit=crop&crop=faces"
+    }
+  ],
+  "businesses": [
+    {
+      "id": "biz-1791545791252-689",
+      "slug": "saffron-heritage-restaurant-2",
+      "name": "Saffron Heritage Restaurant",
+      "type": "restaurant",
+      "categoryName": "Restaurant & Dining",
+      "tagline": "Mughlai & Awadhi Feasts",
+      "phone": "+91 99999 88888",
+      "email": "",
+      "city": "Jaipur",
+      "address": "",
+      "googleReviewUrl": "https://search.google.com/local/writereview?placeid=saffron_heritage",
+      "googlePlaceName": "Saffron Heritage Restaurant",
+      "googleRating": "4.9",
+      "totalGoogleReviews": 120,
+      "plan": "pro_bundle",
+      "billingCycle": "annual",
+      "adminPin": "4321",
+      "antiCheatEnabled": true,
+      "createdAt": "2026-10-09T11:36:31.252Z",
+      "megaOffer": {
+        "title": "🏆 6TH VISIT BUMPER: FLAT 50% OFF ENTIRE BILL!",
+        "discount": "FLAT 50% OFF (Max ₹750)",
+        "code": "SAFFR-BUMPER-50",
+        "description": "Congratulations on completing all 5 visits! Enjoy your grand bumper offer on your 6th visit.",
+        "validDays": 30,
+        "terms": "Valid on all services/orders. One time use only."
+      },
+      "scratchOffers": [
+        {
+          "id": "off-std-1",
+          "title": "Flat 15% OFF",
+          "type": "discount",
+          "code": "SAFF15",
+          "badge": "🎉 15% Discount",
+          "description": "Enjoy 15% off on your bill today!",
+          "probability": 25,
+          "icon": "fa-percent",
+          "active": true
+        },
+        {
+          "id": "off-std-2",
+          "title": "Flat ₹100 Cashback/Off",
+          "type": "cashback",
+          "code": "SAFF100",
+          "badge": "💵 ₹100 Off",
+          "description": "Flat ₹100 discount on your bill today!",
+          "probability": 25,
+          "icon": "fa-tags",
+          "active": true
+        },
+        {
+          "id": "off-std-3",
+          "title": "Free Surprise Perk 🎁",
+          "type": "freebie",
+          "code": "FREEPERK",
+          "badge": "🎁 Free Perk",
+          "description": "Complimentary beverage or treat on the house!",
+          "probability": 15,
+          "icon": "fa-gift",
+          "active": true
+        },
+        {
+          "id": "off-std-4",
+          "title": "Better Luck Next Time 🍀",
+          "type": "waste",
+          "code": "TRYAGAIN",
+          "badge": "🍀 Visit Stamp Added!",
+          "description": "No instant discount today, but your Visit Stamp is added! 6th stamp unlocks the 50% Grand Bumper!",
+          "probability": 35,
+          "icon": "fa-clover",
+          "active": true
+        }
+      ],
+      "customers": [
+        {
+          "id": "cust-1791545791287-546",
+          "name": "Kabir Singh",
+          "mobile": "9888877777",
+          "dob": "1995-08-10",
+          "address": "C-Scheme, Jaipur",
+          "deviceFingerprint": "fp_jaipur_diner_1791545791256",
+          "stamps": 1,
+          "visits": 2,
+          "registeredAt": "2026-10-09T11:36:31.287Z",
+          "lastVisit": "2026-10-09T11:36:31.315Z",
+          "wonCoupons": []
+        }
+      ],
+      "reviews": [],
+      "passcodeHash": "869aded383c35c92cfef7b3202c569e6603594c514441fceb637fcdfba725707",
+      "passcodeSalt": "e341fcf72fcd1b5658864bdb61cd9fae"
+    },
+    {
+      "id": "biz-1791544863525-840",
+      "slug": "saffron-heritage-restaurant-1",
+      "name": "Saffron Heritage Restaurant",
+      "type": "restaurant",
+      "categoryName": "Restaurant & Dining",
+      "tagline": "Mughlai & Awadhi Feasts",
+      "phone": "+91 99999 88888",
+      "email": "",
+      "city": "Jaipur",
+      "address": "",
+      "googleReviewUrl": "https://search.google.com/local/writereview?placeid=saffron_heritage",
+      "googlePlaceName": "Saffron Heritage Restaurant",
+      "googleRating": "4.9",
+      "totalGoogleReviews": 120,
+      "plan": "pro_bundle",
+      "billingCycle": "annual",
+      "adminPin": "4321",
+      "antiCheatEnabled": true,
+      "createdAt": "2026-10-09T11:21:03.525Z",
+      "megaOffer": {
+        "title": "🏆 6TH VISIT BUMPER: FLAT 50% OFF ENTIRE BILL!",
+        "discount": "FLAT 50% OFF (Max ₹750)",
+        "code": "SAFFR-BUMPER-50",
+        "description": "Congratulations on completing all 5 visits! Enjoy your grand bumper offer on your 6th visit.",
+        "validDays": 30,
+        "terms": "Valid on all services/orders. One time use only."
+      },
+      "scratchOffers": [
+        {
+          "id": "off-std-1",
+          "title": "Flat 15% OFF",
+          "type": "discount",
+          "code": "SAFF15",
+          "badge": "🎉 15% Discount",
+          "description": "Enjoy 15% off on your bill today!",
+          "probability": 25,
+          "icon": "fa-percent",
+          "active": true
+        },
+        {
+          "id": "off-std-2",
+          "title": "Flat ₹100 Cashback/Off",
+          "type": "cashback",
+          "code": "SAFF100",
+          "badge": "💵 ₹100 Off",
+          "description": "Flat ₹100 discount on your bill today!",
+          "probability": 25,
+          "icon": "fa-tags",
+          "active": true
+        },
+        {
+          "id": "off-std-3",
+          "title": "Free Surprise Perk 🎁",
+          "type": "freebie",
+          "code": "FREEPERK",
+          "badge": "🎁 Free Perk",
+          "description": "Complimentary beverage or treat on the house!",
+          "probability": 15,
+          "icon": "fa-gift",
+          "active": true
+        },
+        {
+          "id": "off-std-4",
+          "title": "Better Luck Next Time 🍀",
+          "type": "waste",
+          "code": "TRYAGAIN",
+          "badge": "🍀 Visit Stamp Added!",
+          "description": "No instant discount today, but your Visit Stamp is added! 6th stamp unlocks the 50% Grand Bumper!",
+          "probability": 35,
+          "icon": "fa-clover",
+          "active": true
+        }
+      ],
+      "customers": [
+        {
+          "id": "cust-1791544863544-303",
+          "name": "Kabir Singh",
+          "mobile": "9888877777",
+          "dob": "1995-08-10",
+          "address": "C-Scheme, Jaipur",
+          "deviceFingerprint": "fp_jaipur_diner_1791544863527",
+          "stamps": 1,
+          "visits": 2,
+          "registeredAt": "2026-10-09T11:21:03.544Z",
+          "lastVisit": "2026-10-09T11:21:03.563Z",
+          "wonCoupons": [
+            {
+              "id": "coup-1791544863563",
+              "code": "SAFF100-535",
+              "title": "Flat ₹100 Cashback/Off",
+              "description": "Flat ₹100 discount on your bill today!",
+              "type": "cashback",
+              "date": "2026-10-09T11:21:03.563Z",
+              "redeemed": false,
+              "isMega": false
+            }
+          ]
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "id": "biz-1791544077345-562",
+      "slug": "keshari-dhaba",
+      "name": "Keshari Dhaba",
+      "type": "restaurant",
+      "categoryName": "Restaurant & Dining",
+      "tagline": "Experience Excellence & Loyalty Rewards",
+      "phone": "7355447311",
+      "email": "",
+      "city": "Anpara",
+      "address": "",
+      "googleReviewUrl": "https://search.google.com/local/writehttps://www.google.com/search?q=keshari+dhaba+sonbhadra&rlz=1C1RXQR_enIN1219IN1219&oq=keshari+dhaba+sonbhadra&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTILCAEQABgKGAsYgAQyCwgCEAAYChgLGIAEMgsIAxAAGAoYCxiABDILCAQQABgKGAsYgAQyDQgFEC4YrwEYxwEYgAQyBwgGEAAYgAQyCwgHEAAYChgLGIAEMgsICBAAGAoYCxiABDILCAkQABgKGAsYgATSAQkxNjYzM2owajeoAgiwAgHxBRDs0HH0_Mv28QUQ7NBx9PzL9g&sourceid=chrome&ie=UTF-8#lrd=0x398ef9ec45028c7b:0xb3c65f1c6a14bbca,3,,,,review",
+      "googlePlaceName": "Keshari Dhaba",
+      "googleRating": "4.9",
+      "totalGoogleReviews": 120,
+      "plan": "pro_bundle",
+      "billingCycle": "monthly",
+      "adminPin": "1234",
+      "antiCheatEnabled": true,
+      "createdAt": "2026-10-09T11:07:57.345Z",
+      "megaOffer": {
+        "title": "🏆 6TH VISIT BUMPER: FLAT 50% OFF ENTIRE BILL!",
+        "discount": "FLAT 50% OFF (Max ₹750)",
+        "code": "KESHA-BUMPER-50",
+        "description": "Congratulations on completing all 5 visits! Enjoy your grand bumper offer on your 6th visit.",
+        "validDays": 30,
+        "terms": "Valid on all services/orders. One time use only."
+      },
+      "scratchOffers": [
+        {
+          "id": "off-std-1",
+          "title": "Flat 15% OFF",
+          "type": "discount",
+          "code": "KESH15",
+          "badge": "🎉 15% Discount",
+          "description": "Enjoy 15% off on your bill today!",
+          "probability": 25,
+          "icon": "fa-percent",
+          "active": true
+        },
+        {
+          "id": "off-std-2",
+          "title": "Flat ₹100 Cashback/Off",
+          "type": "cashback",
+          "code": "KESH100",
+          "badge": "💵 ₹100 Off",
+          "description": "Flat ₹100 discount on your bill today!",
+          "probability": 25,
+          "icon": "fa-tags",
+          "active": true
+        },
+        {
+          "id": "off-std-3",
+          "title": "Free Surprise Perk 🎁",
+          "type": "freebie",
+          "code": "FREEPERK",
+          "badge": "🎁 Free Perk",
+          "description": "Complimentary beverage or treat on the house!",
+          "probability": 15,
+          "icon": "fa-gift",
+          "active": true
+        },
+        {
+          "id": "off-std-4",
+          "title": "Better Luck Next Time 🍀",
+          "type": "waste",
+          "code": "TRYAGAIN",
+          "badge": "🍀 Visit Stamp Added!",
+          "description": "No instant discount today, but your Visit Stamp is added! 6th stamp unlocks the 50% Grand Bumper!",
+          "probability": 35,
+          "icon": "fa-clover",
+          "active": true
+        },
+        {
+          "id": "off-1791544129812",
+          "title": "100 Free",
+          "code": "BIRYANI20",
+          "type": "cashback",
+          "probability": 15,
+          "description": "Valid upto 499",
+          "badge": "100 Free",
+          "icon": "fa-tags",
+          "active": true
+        },
+        {
+          "id": "off-1791544955316",
+          "title": "ngnh",
+          "code": "G G  G",
+          "type": "freebie",
+          "probability": 15,
+          "description": "gbnv",
+          "badge": "ngnh",
+          "icon": "fa-gift",
+          "active": true
+        }
+      ],
+      "customers": [
+        {
+          "id": "cust-1791546736264-256",
+          "name": "d",
+          "mobile": "7355447311",
+          "dob": "2026-11-04",
+          "address": "",
+          "deviceFingerprint": "fp_c236533d83ff925c0c6cb15c",
+          "stamps": 1,
+          "visits": 2,
+          "registeredAt": "2026-10-09T11:52:16.264Z",
+          "lastVisit": "2026-10-09T11:52:18.738Z",
+          "wonCoupons": []
+        },
+        {
+          "id": "cust-1791544173181-175",
+          "name": "cjsdvkjds kjv",
+          "mobile": "7355447788",
+          "dob": "2026-10-29",
+          "address": "ewdfwsg",
+          "deviceFingerprint": "fp_57ea52ac179dfeacc10b22b0",
+          "stamps": 1,
+          "visits": 2,
+          "registeredAt": "2026-10-09T11:09:33.181Z",
+          "lastVisit": "2026-10-09T11:09:36.087Z",
+          "wonCoupons": [
+            {
+              "id": "coup-1791544176087",
+              "code": "KESH100-510",
+              "title": "Flat ₹100 Cashback/Off",
+              "description": "Flat ₹100 discount on your bill today!",
+              "type": "cashback",
+              "date": "2026-10-09T11:09:36.087Z",
+              "redeemed": true,
+              "isMega": false,
+              "redeemedAt": "2026-10-09T11:10:50.963Z"
+            }
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "id": "rev-1791546744187",
+          "customerName": "d",
+          "rating": 5,
+          "text": "Had an extraordinary dining experience at Keshari Dhaba! The rich flavors, sizzling starters, and royal hospitality made our evening memorable. Highly recommend the chef's specials! ⭐⭐⭐⭐⭐",
+          "date": "Just now",
+          "relativeTime": "Just now",
+          "avatar": "https://api.dicebear.com/7.x/adventurer/svg?seed=d",
+          "privateFeedback": null,
+          "createdAt": "2026-10-09T11:52:24.187Z"
+        }
+      ],
+      "passcodeHash": "611db00f9e3b6c7558a93d747b15fcb2702b8c5c32db418224c12fd55ee6610c",
+      "passcodeSalt": "4affba5b3c1f7ab4d89e8df1ae3d1fc9"
+    },
+    {
+      "id": "biz-1791543789901-308",
+      "slug": "saffron-heritage-restaurant",
+      "name": "Saffron Heritage Restaurant",
+      "type": "restaurant",
+      "categoryName": "Restaurant & Dining",
+      "tagline": "Mughlai & Awadhi Feasts",
+      "phone": "+91 99999 88888",
+      "email": "",
+      "city": "Jaipur",
+      "address": "",
+      "googleReviewUrl": "https://search.google.com/local/writereview?placeid=saffron_heritage",
+      "googlePlaceName": "Saffron Heritage Restaurant",
+      "googleRating": "4.9",
+      "totalGoogleReviews": 120,
+      "plan": "pro_bundle",
+      "billingCycle": "annual",
+      "adminPin": "4321",
+      "antiCheatEnabled": true,
+      "createdAt": "2026-10-09T11:03:09.901Z",
+      "megaOffer": {
+        "title": "🏆 6TH VISIT BUMPER: FLAT 50% OFF ENTIRE BILL!",
+        "discount": "FLAT 50% OFF (Max ₹750)",
+        "code": "SAFFR-BUMPER-50",
+        "description": "Congratulations on completing all 5 visits! Enjoy your grand bumper offer on your 6th visit.",
+        "validDays": 30,
+        "terms": "Valid on all services/orders. One time use only."
+      },
+      "scratchOffers": [
+        {
+          "id": "off-std-1",
+          "title": "Flat 15% OFF",
+          "type": "discount",
+          "code": "SAFF15",
+          "badge": "🎉 15% Discount",
+          "description": "Enjoy 15% off on your bill today!",
+          "probability": 25,
+          "icon": "fa-percent",
+          "active": true
+        },
+        {
+          "id": "off-std-2",
+          "title": "Flat ₹100 Cashback/Off",
+          "type": "cashback",
+          "code": "SAFF100",
+          "badge": "💵 ₹100 Off",
+          "description": "Flat ₹100 discount on your bill today!",
+          "probability": 25,
+          "icon": "fa-tags",
+          "active": true
+        },
+        {
+          "id": "off-std-3",
+          "title": "Free Surprise Perk 🎁",
+          "type": "freebie",
+          "code": "FREEPERK",
+          "badge": "🎁 Free Perk",
+          "description": "Complimentary beverage or treat on the house!",
+          "probability": 15,
+          "icon": "fa-gift",
+          "active": true
+        },
+        {
+          "id": "off-std-4",
+          "title": "Better Luck Next Time 🍀",
+          "type": "waste",
+          "code": "TRYAGAIN",
+          "badge": "🍀 Visit Stamp Added!",
+          "description": "No instant discount today, but your Visit Stamp is added! 6th stamp unlocks the 50% Grand Bumper!",
+          "probability": 35,
+          "icon": "fa-clover",
+          "active": true
+        }
+      ],
+      "customers": [
+        {
+          "id": "cust-1791543789933-4",
+          "name": "Kabir Singh",
+          "mobile": "9888877777",
+          "dob": "1995-08-10",
+          "address": "C-Scheme, Jaipur",
+          "deviceFingerprint": "fp_jaipur_diner_1791543789903",
+          "stamps": 1,
+          "visits": 2,
+          "registeredAt": "2026-10-09T11:03:09.933Z",
+          "lastVisit": "2026-10-09T11:03:09.951Z",
+          "wonCoupons": [
+            {
+              "id": "coup-1791543789951",
+              "code": "SAFF100-451",
+              "title": "Flat ₹100 Cashback/Off",
+              "description": "Flat ₹100 discount on your bill today!",
+              "type": "cashback",
+              "date": "2026-10-09T11:03:09.951Z",
+              "redeemed": false,
+              "isMega": false
+            }
+          ]
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "id": "biz-royal-spice",
+      "slug": "royal-spice",
+      "name": "The Royal Spice Bistro",
+      "type": "restaurant",
+      "categoryName": "Restaurant & Fine Dining",
+      "tagline": "Authentic Flavors, Royal Hospitality & Rewards",
+      "phone": "+91 98765 43210",
+      "email": "contact@royalspice.com",
+      "city": "New Delhi",
+      "address": "Shop 12-14, Gourmet Boulevard, MG Road, New Delhi",
+      "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "googlePlaceName": "The Royal Spice Bistro & Cafe",
+      "googleRating": "4.9",
+      "totalGoogleReviews": 1482,
+      "plan": "pro_bundle",
+      "billingCycle": "annual",
+      "adminPin": "1234",
+      "antiCheatEnabled": true,
+      "megaOffer": {
+        "title": "🏆 VIP BUMPER REWARD: FLAT 50% OFF!",
+        "discount": "FLAT 50% OFF (Max ₹750)",
+        "code": "ROYAL-BUMPER-50",
+        "description": "Congratulations on completing all 5 stamps! Enjoy 50% off on your entire food bill on your next visit.",
+        "validDays": 30,
+        "terms": "Valid on all dine-in orders above ₹499. One time use only."
+      },
+      "scratchOffers": [
+        {
+          "id": "off-1",
+          "title": "Flat 15% OFF",
+          "type": "discount",
+          "code": "FLAT15ROYAL",
+          "badge": "🎉 Instant Discount",
+          "description": "Get 15% off on your total food bill today!",
+          "probability": 25,
+          "icon": "fa-percent",
+          "active": true
+        },
+        {
+          "id": "off-2",
+          "title": "Free Royal Mocktail 🍹",
+          "type": "freebie",
+          "code": "FREEDRINK",
+          "badge": "🍹 Free Drink",
+          "description": "Enjoy any gourmet mocktail or fresh lemonade free!",
+          "probability": 20,
+          "icon": "fa-glass-water",
+          "active": true
+        },
+        {
+          "id": "off-3",
+          "title": "Flat ₹100 Cashback/Off",
+          "type": "cashback",
+          "code": "ROYAL100",
+          "badge": "💵 ₹100 Off",
+          "description": "Flat ₹100 deduction on orders above ₹400.",
+          "probability": 15,
+          "icon": "fa-tags",
+          "active": true
+        },
+        {
+          "id": "off-4",
+          "title": "Free Sizzling Brownie 🍨",
+          "type": "freebie",
+          "code": "BROWNIEFREE",
+          "badge": "🍨 Sweet Treat",
+          "description": "Complimentary Hot Sizzling Brownie with Vanilla Ice Cream!",
+          "probability": 15,
+          "icon": "fa-ice-cream",
+          "active": true
+        },
+        {
+          "id": "off-5",
+          "title": "Better Luck Next Time 🍀",
+          "type": "waste",
+          "code": "TRYAGAIN",
+          "badge": "🍀 Keep Stamping!",
+          "description": "No discount this time, but your Stamp has been added! 5 stamps unlock the 50% Grand Offer!",
+          "probability": 25,
+          "icon": "fa-clover",
+          "active": true
+        }
+      ],
+      "customers": [
+        {
+          "id": "cust-1791546657859-212",
+          "name": "vfdfd",
+          "mobile": "7355447311",
+          "dob": "2026-10-22",
+          "address": "",
+          "deviceFingerprint": "fp_c236533d83ff925c0c6cb15c",
+          "stamps": 1,
+          "visits": 2,
+          "registeredAt": "2026-10-09T11:50:57.859Z",
+          "lastVisit": "2026-10-09T11:51:02.220Z",
+          "wonCoupons": [
+            {
+              "id": "coup-1791546662220",
+              "code": "ROYAL100-830",
+              "title": "Flat ₹100 Cashback/Off",
+              "description": "Flat ₹100 deduction on orders above ₹400.",
+              "type": "cashback",
+              "date": "2026-10-09T11:51:02.220Z",
+              "redeemed": false,
+              "isMega": false
+            }
+          ]
+        },
+        {
+          "id": "cust-1",
+          "name": "Rohit Sharma",
+          "mobile": "9876543210",
+          "dob": "1994-06-15",
+          "address": "Sector 14, Gurugram",
+          "deviceFingerprint": "fp_demo_device_1",
+          "stamps": 0,
+          "visits": 4,
+          "lastVisit": "2026-10-07T11:02:30.630Z",
+          "registeredAt": "2026-09-25T11:02:30.631Z",
+          "wonCoupons": [
+            {
+              "code": "FLAT15ROYAL",
+              "title": "Flat 15% OFF",
+              "date": "2026-10-07T11:02:30.631Z",
+              "redeemed": true,
+              "redeemedAt": "2026-10-09T11:50:31.511Z"
+            },
+            {
+              "code": "FREEDRINK",
+              "title": "Free Royal Mocktail",
+              "date": "2026-10-02T11:02:30.631Z",
+              "redeemed": true
+            }
+          ]
+        },
+        {
+          "id": "cust-2",
+          "name": "Pooja Verma",
+          "mobile": "9811223344",
+          "dob": "1998-11-22",
+          "address": "Lajpat Nagar, New Delhi",
+          "deviceFingerprint": "fp_demo_device_2",
+          "stamps": 6,
+          "visits": 6,
+          "lastVisit": "2026-10-08T11:02:30.631Z",
+          "registeredAt": "2026-09-14T11:02:30.631Z",
+          "wonCoupons": [
+            {
+              "code": "ROYAL-BUMPER-50",
+              "title": "🏆 VIP BUMPER: FLAT 50% OFF",
+              "date": "2026-10-08T11:02:30.631Z",
+              "redeemed": true,
+              "isMega": true,
+              "redeemedAt": "2026-10-09T11:50:28.583Z"
+            }
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "id": "rev-1791546675605",
+          "customerName": "vfdfd",
+          "rating": 3,
+          "text": "Experience was decent, though service could be slightly faster during peak hours. Good potential overall. ⭐⭐⭐",
+          "date": "Just now",
+          "relativeTime": "Just now",
+          "avatar": "https://api.dicebear.com/7.x/adventurer/svg?seed=vfdfd",
+          "privateFeedback": null,
+          "createdAt": "2026-10-09T11:51:15.605Z"
+        },
+        {
+          "id": "rev-1",
+          "customerName": "Aman Gupta",
+          "rating": 5,
+          "date": "2 days ago",
+          "text": "The Dal Makhani and Butter Naan were simply divine! Extremely welcoming staff and warm royal vibes. 5/5 stars!",
+          "relativeTime": "2 days ago",
+          "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop&crop=faces"
+        },
+        {
+          "id": "rev-2",
+          "customerName": "Sneha Reddy",
+          "rating": 5,
+          "date": "4 days ago",
+          "text": "Loved the scratch card reward! Got a free sizzling brownie and the food quality was exceptional. Will come back with family!",
+          "relativeTime": "4 days ago",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces"
+        }
+      ],
+      "passcodeHash": "055704a3d16f0eee75da88da98dd1a6c75ee6a9bb6774e31703744b4c2e85df2",
+      "passcodeSalt": "8a556940820fd1e51ddd2daa85b0db94"
+    },
+    {
+      "id": "biz-cafe-bliss",
+      "slug": "cafe-bliss",
+      "name": "Cafe Bliss & Artisanal Roastery",
+      "type": "cafe",
+      "categoryName": "Cafe & Coffee Roastery",
+      "tagline": "Handcrafted Coffees, Fresh Pastries & Good Vibes",
+      "phone": "+91 98111 22334",
+      "email": "hello@cafebliss.in",
+      "city": "Bengaluru",
+      "address": "100 Feet Road, Indiranagar, Bengaluru",
+      "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "googlePlaceName": "Cafe Bliss Indiranagar",
+      "googleRating": "4.8",
+      "totalGoogleReviews": 940,
+      "plan": "pro_bundle",
+      "billingCycle": "monthly",
+      "adminPin": "1234",
+      "antiCheatEnabled": true,
+      "megaOffer": {
+        "title": "🏆 6TH STAMP BUMPER: FREE SOURDOUGH PIZZA + COFFEE!",
+        "discount": "100% FREE MEAL COMBO",
+        "code": "BLISS-BUMPER-VIP",
+        "description": "Woohoo! 5 stamps completed. Your 6th stamp earns a Free Gourmet Pizza & Pour-over Coffee on your next cafe visit!",
+        "validDays": 30,
+        "terms": "Valid on all dine-in visits. One time use only."
+      },
+      "scratchOffers": [
+        {
+          "id": "cb-1",
+          "title": "Free Caramel Latte ☕",
+          "type": "freebie",
+          "code": "FREELATTE",
+          "badge": "☕ Free Coffee",
+          "description": "Enjoy a hot Caramel Latte on the house!",
+          "probability": 25,
+          "icon": "fa-mug-hot",
+          "active": true
+        },
+        {
+          "id": "cb-2",
+          "title": "Flat 20% OFF Bakery 🥐",
+          "type": "discount",
+          "code": "BAKE20",
+          "badge": "🥐 20% Off",
+          "description": "20% off on all fresh croissants, bagels & cakes!",
+          "probability": 25,
+          "icon": "fa-cookie-bite",
+          "active": true
+        },
+        {
+          "id": "cb-3",
+          "title": "Better Luck Next Time 🍀",
+          "type": "waste",
+          "code": "TRYAGAIN",
+          "badge": "🍀 Stamp Added!",
+          "description": "No discount today, but your Visit Stamp is added! 6th stamp unlocks Free Sourdough Pizza!",
+          "probability": 50,
+          "icon": "fa-clover",
+          "active": true
+        }
+      ],
+      "customers": [
+        {
+          "id": "cust-1791544653850-475",
+          "name": "ffgsg",
+          "mobile": "7355447311",
+          "dob": "2026-10-30",
+          "address": "sdvsvf",
+          "deviceFingerprint": "fp_c236533d83ff925c0c6cb15c",
+          "stamps": 1,
+          "visits": 2,
+          "registeredAt": "2026-10-09T11:17:33.850Z",
+          "lastVisit": "2026-10-09T11:17:36.864Z",
+          "wonCoupons": [
+            {
+              "id": "coup-1791544656864",
+              "code": "FREELATTE-223",
+              "title": "Free Caramel Latte ☕",
+              "description": "Enjoy a hot Caramel Latte on the house!",
+              "type": "freebie",
+              "date": "2026-10-09T11:17:36.864Z",
+              "redeemed": false,
+              "isMega": false
+            }
+          ]
+        },
+        {
+          "id": "cust-cb-1",
+          "name": "Ananya Iyer",
+          "mobile": "9845012345",
+          "dob": "1997-03-14",
+          "address": "Indiranagar, Bengaluru",
+          "deviceFingerprint": "fp_demo_cb_1",
+          "stamps": 0,
+          "visits": 3,
+          "lastVisit": "2026-10-09T11:02:30.631Z",
+          "registeredAt": "2026-09-29T11:02:30.631Z",
+          "wonCoupons": [
+            {
+              "code": "FREELATTE",
+              "title": "Free Caramel Latte ☕",
+              "date": "2026-10-09T11:02:30.631Z",
+              "redeemed": true,
+              "redeemedAt": "2026-10-09T11:16:51.998Z"
+            }
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "id": "rev-cb-1",
+          "customerName": "Rohan Kapoor",
+          "rating": 5,
+          "date": "Yesterday",
+          "text": "The pour-over coffee and hazelnut croissant are out of this world! Perfect work-friendly vibe and soothing playlist. ⭐⭐⭐⭐⭐",
+          "relativeTime": "Yesterday",
+          "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop&crop=faces"
+        }
+      ]
+    },
+    {
+      "id": "biz-grand-regency",
+      "slug": "grand-regency",
+      "name": "The Grand Regency Luxury Hotel & Suites",
+      "type": "hotel",
+      "categoryName": "Hotel & Hospitality",
+      "tagline": "Unparalleled Luxury, World-Class Dining & Pampering",
+      "phone": "+91 99887 76655",
+      "email": "concierge@grandregency.com",
+      "city": "Mumbai",
+      "address": "Juhu Beachfront, Mumbai",
+      "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "googlePlaceName": "The Grand Regency Juhu",
+      "googleRating": "4.9",
+      "totalGoogleReviews": 2410,
+      "plan": "pro_bundle",
+      "billingCycle": "annual",
+      "adminPin": "1234",
+      "antiCheatEnabled": true,
+      "megaOffer": {
+        "title": "🏆 6TH VISIT BUMPER: FLAT 50% OFF ON LUXURY STAY OR SPA!",
+        "discount": "FLAT 50% OFF (Max ₹3000)",
+        "code": "REGENCY-50-VIP",
+        "description": "Congratulations! Your 6th visit unlocks 50% discount on your next suite booking or wellness spa session.",
+        "validDays": 60,
+        "terms": "Valid on room booking or spa session. Prior reservation required."
+      },
+      "scratchOffers": [
+        {
+          "id": "gr-1",
+          "title": "Complimentary High Tea 🫖",
+          "type": "freebie",
+          "code": "ROYALTEA",
+          "badge": "🫖 High Tea",
+          "description": "Enjoy chef's luxury royal high tea platter for 2!",
+          "probability": 30,
+          "icon": "fa-mug-saucer",
+          "active": true
+        },
+        {
+          "id": "gr-2",
+          "title": "Flat ₹500 Off Dine-in 🍽️",
+          "type": "cashback",
+          "code": "REGENCY500",
+          "badge": "💵 ₹500 Off",
+          "description": "Flat ₹500 discount on poolside restaurant buffet.",
+          "probability": 30,
+          "icon": "fa-tag",
+          "active": true
+        },
+        {
+          "id": "gr-3",
+          "title": "Better Luck Next Time 🍀",
+          "type": "waste",
+          "code": "TRYAGAIN",
+          "badge": "🍀 Stamp Added!",
+          "description": "Stamp added to your VIP passport! 6th stamp gives 50% off stay!",
+          "probability": 40,
+          "icon": "fa-clover",
+          "active": true
+        }
+      ],
+      "customers": [],
+      "reviews": []
+    },
+    {
+      "id": "biz-glam-studio",
+      "slug": "glam-studio",
+      "name": "Glam & Glow Luxury Salon & Spa",
+      "type": "salon",
+      "categoryName": "Salon, Spa & Wellness",
+      "tagline": "Couture Hair Styling, Organic Facials & Body Spa",
+      "phone": "+91 97766 55443",
+      "email": "book@glamglow.in",
+      "city": "Pune",
+      "address": "Lane 7, Koregaon Park, Pune",
+      "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "googlePlaceName": "Glam & Glow Salon Pune",
+      "googleRating": "4.9",
+      "totalGoogleReviews": 680,
+      "plan": "loyalty_only",
+      "billingCycle": "monthly",
+      "adminPin": "1234",
+      "antiCheatEnabled": true,
+      "megaOffer": {
+        "title": "🏆 6TH VISIT BUMPER: FLAT 50% OFF ON ANY SPA / HAIR TREATMENT!",
+        "discount": "FLAT 50% OFF (Max ₹1200)",
+        "code": "GLAM-BUMPER-50",
+        "description": "Congratulations! 5 visits complete. Get 50% off on premium hair botox, balayage, or luxury facial on your next appointment.",
+        "validDays": 45,
+        "terms": "Valid on all salon services above ₹999."
+      },
+      "scratchOffers": [
+        {
+          "id": "gg-1",
+          "title": "Free Moroccan Hair Spa 💆",
+          "type": "freebie",
+          "code": "FREESPA",
+          "badge": "💆 Free Spa",
+          "description": "Complimentary deep hydration hair spa treatment!",
+          "probability": 25,
+          "icon": "fa-spa",
+          "active": true
+        },
+        {
+          "id": "gg-2",
+          "title": "Flat ₹200 Off Any Service 💅",
+          "type": "cashback",
+          "code": "GLAM200",
+          "badge": "💵 ₹200 Off",
+          "description": "Flat ₹200 off on nail art or facial services.",
+          "probability": 30,
+          "icon": "fa-heart",
+          "active": true
+        },
+        {
+          "id": "gg-3",
+          "title": "Better Luck Next Time 🍀",
+          "type": "waste",
+          "code": "TRYAGAIN",
+          "badge": "🍀 Stamp Added!",
+          "description": "Keep shining! Visit stamp added towards your 50% Grand Bumper!",
+          "probability": 45,
+          "icon": "fa-clover",
+          "active": true
+        }
+      ],
+      "customers": [],
+      "reviews": []
+    }
+  ]
+}

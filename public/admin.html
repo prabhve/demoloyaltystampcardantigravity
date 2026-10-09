@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Admin Dashboard | RevLoyal AI</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 antialiased font-sans">
+
+  <!-- ADMIN TOPBAR -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 shadow-xs">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-royal text-white flex items-center justify-center font-bold text-lg shadow-md shadow-orange-500/20">
+        <i class="fa-solid fa-crown"></i>
+      </div>
+      <div>
+        <h1 id="bizHeaderName" class="text-base font-extrabold text-slate-900 leading-tight">The Royal Spice Bistro</h1>
+        <span id="bizHeaderType" class="text-xs text-amber-600 font-bold tracking-wider uppercase">Master Management & Loyalty Portal</span>
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-2 sm:space-x-3">
+      <!-- Business Profile Switcher -->
+      <div class="relative">
+        <select id="bizSwitcherSelect" class="text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 py-2 pl-3 pr-8 rounded-xl border border-slate-200 outline-none cursor-pointer">
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+
+      <div class="hidden lg:flex items-center space-x-2 bg-emerald-50 text-emerald-700 text-xs px-3 py-1.5 rounded-full border border-emerald-200 font-semibold">
+        <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+        <span id="antiCheatBadge">Anti-Cheat Active</span>
+      </div>
+
+      <a id="previewCustomerBtn" href="/customer.html?biz=royal-spice" target="_blank" class="px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center space-x-1.5">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <span>Customer App</span>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+      </a>
+
+      <button id="adminLockDeskBtn" class="px-3 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center space-x-1.5" title="Lock Desk (10-Layer Shield)">
+        <i class="fa-solid fa-lock"></i>
+        <span class="hidden sm:inline">Lock Desk</span>
+      </button>
+
+      <a href="/" class="p-2 text-slate-400 hover:text-slate-700 rounded-xl transition" title="Back to RevLoyal Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+    <!-- OVERVIEW STATS CARDS -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between interactive-card">
+        <div>
+          <span class="text-xs text-slate-500 font-bold block mb-1">Total Customers</span>
+          <h3 id="statTotalCustomers" class="text-2xl font-black text-slate-900">0</h3>
+          <span class="text-[11px] text-emerald-600 font-semibold mt-1 block">
+            <i class="fa-solid fa-arrow-trend-up"></i> Verified devices
+          </span>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-users"></i>
+        </div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between interactive-card">
+        <div>
+          <span class="text-xs text-slate-500 font-bold block mb-1">Stamps Issued</span>
+          <h3 id="statTotalStamps" class="text-2xl font-black text-slate-900">0</h3>
+          <span class="text-[11px] text-blue-600 font-semibold mt-1 block">
+            <i class="fa-solid fa-stamp"></i> Across visits
+          </span>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-award"></i>
+        </div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between interactive-card">
+        <div>
+          <span class="text-xs text-slate-500 font-bold block mb-1">50% Bumper Winners</span>
+          <h3 id="statMegaWinners" class="text-2xl font-black text-amber-600">0</h3>
+          <span class="text-[11px] text-amber-600 font-bold mt-1 block">
+            <i class="fa-solid fa-trophy"></i> 6 Stamps Unlocked
+          </span>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-xl shadow-md shadow-amber-500/20">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between interactive-card">
+        <div>
+          <span class="text-xs text-slate-500 font-bold block mb-1">Coupons Redeemed</span>
+          <h3 id="statCouponsRedeemed" class="text-2xl font-black text-slate-900">0 / 0</h3>
+          <span class="text-[11px] text-slate-500 font-semibold mt-1 block">Redeemed / Won</span>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-receipt"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS NAVIGATION BAR (USER-FRIENDLY & CLEAN) -->
+    <div class="flex items-center space-x-2 overflow-x-auto pb-1 border-b border-slate-200">
+      <button onclick="showAdminTab('tab-customers')" class="admin-tab-nav-btn active px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-2 bg-amber-500 text-white shadow-xs shrink-0" data-tab="tab-customers">
+        <i class="fa-solid fa-users"></i>
+        <span>Customers & Stamps CRM</span>
+      </button>
+
+      <button onclick="showAdminTab('tab-offers')" class="admin-tab-nav-btn px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-2 bg-white text-slate-600 hover:bg-slate-100 shrink-0" data-tab="tab-offers">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>Scratch Offers</span>
+      </button>
+
+      <button onclick="showAdminTab('tab-bumper')" class="admin-tab-nav-btn px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-2 bg-white text-slate-600 hover:bg-slate-100 shrink-0" data-tab="tab-bumper">
+        <i class="fa-solid fa-trophy"></i>
+        <span>6th Stamp Bumper Reward</span>
+      </button>
+
+      <button onclick="showAdminTab('tab-qr')" class="admin-tab-nav-btn px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-2 bg-white text-slate-600 hover:bg-slate-100 shrink-0" data-tab="tab-qr">
+        <i class="fa-solid fa-qrcode"></i>
+        <span>Table QR Standees</span>
+      </button>
+
+      <button onclick="showAdminTab('tab-settings')" class="admin-tab-nav-btn px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-2 bg-white text-slate-600 hover:bg-slate-100 shrink-0" data-tab="tab-settings">
+        <i class="fa-solid fa-gear"></i>
+        <span>Store Settings</span>
+      </button>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- TAB 1: CUSTOMERS CRM & STAMPS -->
+    <!-- ============================================== -->
+    <div id="tab-customers" class="admin-tab-content space-y-4">
+      <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
+        <div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h3 class="text-base font-extrabold text-slate-900">Customer Loyalty Records</h3>
+            <p class="text-xs text-slate-500">View mobile profiles, hardware device IDs, stamp progress & redeem coupons</p>
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="flex items-center space-x-1.5 bg-slate-100 p-1 rounded-xl">
+            <button class="cust-filter-btn px-3 py-1 rounded-lg text-xs font-bold bg-amber-500 text-white transition" data-filter="all">All</button>
+            <button class="cust-filter-btn px-3 py-1 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition" data-filter="near_mega">Near 50% (4-5)</button>
+            <button class="cust-filter-btn px-3 py-1 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition" data-filter="mega">Bumper (6)</button>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="px-5 pt-3 pb-2">
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+            <input type="text" id="customerSearch" class="w-full text-xs pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-400 bg-slate-50 focus:bg-white" placeholder="Search by Customer Name, Mobile Number or Area...">
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse min-w-[700px]">
+            <thead>
+              <tr class="bg-slate-50/80 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-y border-slate-100">
+                <th class="py-3 px-4">Customer</th>
+                <th class="py-3 px-4">Location / DOB</th>
+                <th class="py-3 px-4">Device Fingerprint</th>
+                <th class="py-3 px-4">Stamps (1-6)</th>
+                <th class="py-3 px-4">Won Coupons</th>
+                <th class="py-3 px-4">Last Visit</th>
+                <th class="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="customerTableBody" class="divide-y divide-slate-100 text-xs">
+              <!-- Dynamically loaded by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- TAB 2: SCRATCH CARD OFFERS -->
+    <!-- ============================================== -->
+    <div id="tab-offers" class="admin-tab-content hidden space-y-6">
+      <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6">
+        <div class="mb-5">
+          <h3 class="text-base font-extrabold text-slate-900">Scratch Card Offers & Probabilities</h3>
+          <p class="text-xs text-slate-500">Configure random reward chances and "Better Luck Next Time" waste ratio</p>
+        </div>
+
+        <!-- Active Offers List -->
+        <div id="offersList" class="space-y-3 mb-6">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Add New Offer Form -->
+        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+          <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Add New Scratch Offer</h4>
+          <form id="addOfferForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Offer Title *</label>
+              <input type="text" id="newOfferTitle" required class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white" placeholder="e.g. 20% OFF Biryani">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Voucher Code *</label>
+              <input type="text" id="newOfferCode" required class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white font-mono uppercase" placeholder="e.g. BIRYANI20">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Type</label>
+              <select id="newOfferType" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white">
+                <option value="discount">Discount Percentage</option>
+                <option value="freebie">Free Item / Drink</option>
+                <option value="cashback">Flat Amount Off</option>
+                <option value="waste">Better Luck Next Time (Waste)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Win Chance Probability (%)</label>
+              <input type="number" id="newOfferProb" required min="1" max="100" value="15" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Description / Bill Condition</label>
+              <input type="text" id="newOfferDesc" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white" placeholder="e.g. Valid on dine-in bill above ₹499">
+            </div>
+            <div class="sm:col-span-2 text-right">
+              <button type="submit" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition">
+                <i class="fa-solid fa-plus mr-1"></i> Add Scratch Offer
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- TAB 3: 6TH STAMP BUMPER REWARD -->
+    <!-- ============================================== -->
+    <div id="tab-bumper" class="admin-tab-content hidden space-y-6">
+      <div class="bg-gradient-to-br from-amber-500/10 via-yellow-500/10 to-orange-500/10 rounded-3xl border border-amber-300 p-6 shadow-sm max-w-2xl">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-lg shadow">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-extrabold text-slate-900 leading-tight">6th Stamp Bumper Reward Configurator</h3>
+            <p class="text-xs text-amber-800">Triggered automatically when a guest reaches 6 completed stamps</p>
+          </div>
+        </div>
+
+        <form id="megaOfferForm" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Mega Offer Headline</label>
+            <input type="text" id="megaTitle" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-amber-300 bg-white" value="🏆 VIP BUMPER REWARD: FLAT 50% OFF!">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Discount Tag</label>
+              <input type="text" id="megaDiscount" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-amber-300 bg-white" value="FLAT 50% OFF (Max ₹750)">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Code Prefix</label>
+              <input type="text" id="megaCode" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-amber-300 bg-white font-mono uppercase" value="ROYAL-BUMPER-50">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Validity Days</label>
+            <input type="number" id="megaValidDays" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-amber-300 bg-white" value="30">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Terms & Conditions</label>
+            <textarea id="megaTerms" rows="2" class="w-full text-xs p-3 rounded-xl border border-amber-300 bg-white">Valid on all dine-in orders above ₹499. One time use only.</textarea>
+          </div>
+          <button type="submit" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-md transition">
+            <i class="fa-solid fa-floppy-disk mr-1.5"></i> Save Bumper Offer Settings
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- TAB 4: TABLE QR STANDEES -->
+    <!-- ============================================== -->
+    <div id="tab-qr" class="admin-tab-content hidden space-y-6">
+      <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 max-w-xl">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center text-lg">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-extrabold text-slate-900 leading-tight">Table QR Standee Station</h3>
+            <p class="text-xs text-slate-500">Generate & print table tent cards for dining tables or counter</p>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">Select Table / Area:</label>
+          <select id="qrTableSelect" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white font-bold">
+            <option value="Table 1">Table 1</option>
+            <option value="Table 2">Table 2</option>
+            <option value="Table 3">Table 3</option>
+            <option value="Table 4" selected>Table 4</option>
+            <option value="Table 5">Table 5</option>
+            <option value="Table 6">Table 6</option>
+            <option value="Table 7">Table 7</option>
+            <option value="Billing Counter">Billing Counter</option>
+            <option value="Bar Lounge">Bar Lounge</option>
+          </select>
+        </div>
+
+        <!-- Printable Standee Card Container -->
+        <div id="printStandeeArea" class="bg-gradient-to-b from-amber-50 via-white to-amber-50/50 p-6 rounded-3xl border-2 border-amber-200 text-center shadow-xs">
+          <div class="inline-block px-3 py-1 rounded-full bg-gradient-royal text-white text-[10px] font-black uppercase tracking-wider mb-2">
+            SCAN • SCRATCH • WIN
+          </div>
+          <h4 id="qrStandeeRestaurant" class="font-black text-slate-900 text-sm">The Royal Spice Bistro</h4>
+          <span id="qrStandeeTable" class="text-xs font-black text-amber-700 block my-1">Table 4</span>
+
+          <div class="w-48 h-48 mx-auto my-3 p-2 bg-white rounded-2xl shadow-sm border border-slate-200 flex items-center justify-center">
+            <img id="qrCodeImg" src="" alt="QR Code" class="w-full h-full object-contain">
+          </div>
+
+          <p class="text-xs text-slate-600 font-medium px-4 leading-tight">
+            Scan with smartphone camera to claim today's Scratch Card & unlock 50% Grand Bumper!
+          </p>
+          <p id="qrTargetUrl" class="text-[10px] text-slate-400 font-mono mt-2 truncate"></p>
+        </div>
+
+        <button onclick="printStandee()" class="w-full mt-4 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-print"></i>
+          <span>Print Table Standee</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- TAB 5: BUSINESS SETTINGS -->
+    <!-- ============================================== -->
+    <div id="tab-settings" class="admin-tab-content hidden space-y-6">
+      <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 max-w-xl">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-extrabold text-slate-900 leading-tight">Business Profile & Review Settings</h3>
+            <p class="text-xs text-slate-500">Configure brand information, Google Maps link, and anti-cheat strictness</p>
+          </div>
+        </div>
+
+        <form id="settingsForm" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Business Name</label>
+            <input type="text" id="settingRestaurantName" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Tagline</label>
+            <input type="text" id="settingTagline" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Phone</label>
+            <input type="text" id="settingPhone" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Address / City</label>
+            <input type="text" id="settingAddress" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Google Maps Review Write URL</label>
+            <input type="url" id="settingGoogleUrl" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono" placeholder="https://search.google.com/local/writereview?placeid=...">
+          </div>
+          <div class="grid grid-cols-2 gap-3 items-center">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Google Rating Display</label>
+              <input type="text" id="settingGoogleRating" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300" value="4.9">
+            </div>
+            <div class="pt-5">
+              <label class="flex items-center space-x-2 text-xs font-bold text-slate-700 cursor-pointer">
+                <input type="checkbox" id="settingAntiCheat" class="rounded text-amber-500 focus:ring-amber-400">
+                <span>Device Anti-Cheat Active</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow transition">
+            <i class="fa-solid fa-floppy-disk mr-1.5"></i> Update Store Profile
+          </button>
+        </form>
+
+        <!-- Passcode & Security Settings Box -->
+        <div class="mt-8 pt-6 border-t border-slate-200">
+          <div class="flex items-center space-x-2.5 mb-3">
+            <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-sm font-bold">
+              <i class="fa-solid fa-key"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-800">10-Layer Passcode Management</h4>
+              <p class="text-[10px] text-slate-500">Update your access passcode or inspect security audit logs</p>
+            </div>
+          </div>
+
+          <form id="changePasscodeForm" class="space-y-3">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Current Passcode *</label>
+              <input type="password" id="currentPasscodeInput" required class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono tracking-widest" placeholder="Current passcode">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">New Passcode (min 4 chars) *</label>
+                <input type="password" id="newPasscodeInput" required minlength="4" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono tracking-widest" placeholder="New passcode">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Confirm New Passcode *</label>
+                <input type="password" id="confirmPasscodeInput" required minlength="4" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono tracking-widest" placeholder="Confirm passcode">
+              </div>
+            </div>
+            <button type="submit" class="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition">
+              <i class="fa-solid fa-shield-halved mr-1"></i> Update & Re-Encrypt Passcode (PBKDF2)
+            </button>
+          </form>
+
+          <!-- View Audit Trail Button -->
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Layer 10: Immutable Security Event Trail</span>
+            <button type="button" onclick="openAuditLogModal()" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center space-x-1">
+              <i class="fa-solid fa-list-check text-xs"></i>
+              <span>View Audit Logs</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================== -->
+  <!-- PASSCODE SECURITY VAULT MODAL (10-LAYER LOCK) -->
+  <!-- ============================================== -->
+  <div id="passcodeVaultModal" class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border-2 border-amber-300 text-center animate-in zoom-in duration-200 relative overflow-hidden">
+      
+      <!-- Vault Lock Icon -->
+      <div class="w-16 h-16 bg-gradient-royal rounded-3xl mx-auto flex items-center justify-center text-white text-3xl shadow-xl shadow-orange-500/30 mb-4 pulse-glow">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+
+      <span class="inline-block bg-amber-100 text-amber-800 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-amber-300 mb-2">
+        10-Layer Security Protocol Active
+      </span>
+
+      <h3 class="text-xl font-black text-slate-900 tracking-tight">Secured Management Vault</h3>
+      <p id="vaultBizName" class="text-xs font-bold text-amber-700 mt-0.5">The Royal Spice Bistro</p>
+      <p class="text-[11px] text-slate-500 mt-1 max-w-xs mx-auto">
+        Enter your secured authorization passcode to access this business's customer records, stamps & settings.
+      </p>
+
+      <!-- Lockout Error Alert Banner -->
+      <div id="vaultAlertBanner" class="hidden my-3 p-3 bg-rose-50 border border-rose-300 rounded-2xl text-left">
+        <div class="flex items-start space-x-2">
+          <i class="fa-solid fa-triangle-exclamation text-rose-600 text-sm mt-0.5"></i>
+          <div>
+            <h5 class="text-xs font-bold text-rose-800">Access Denied</h5>
+            <p id="vaultAlertMessage" class="text-[11px] text-rose-700 leading-tight mt-0.5"></p>
+          </div>
+        </div>
+      </div>
+
+      <form id="vaultPasscodeForm" class="space-y-4 text-left mt-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center justify-between">
+            <span>Passcode / Staff PIN *</span>
+            <span class="text-[10px] text-slate-400 font-mono">Default Demo: 1234</span>
+          </label>
+          <div class="relative">
+            <i class="fa-solid fa-lock absolute left-3.5 top-3.5 text-slate-400 text-xs"></i>
+            <input type="password" id="vaultPasscodeInput" required autofocus class="w-full text-base font-mono tracking-widest pl-9 pr-10 py-3 rounded-2xl border-2 border-slate-300 focus:border-amber-500 focus:ring-4 focus:ring-amber-200 outline-none text-center font-bold" placeholder="••••">
+            <button type="button" onclick="togglePasscodeVisibility()" class="absolute right-3.5 top-3.5 text-slate-400 hover:text-slate-700">
+              <i id="vaultEyeIcon" class="fa-solid fa-eye-slash text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 10 Layers Micro Pill Grid -->
+        <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-[10px] text-slate-600 space-y-1">
+          <div class="font-bold text-slate-800 flex items-center justify-between">
+            <span><i class="fa-solid fa-certificate text-amber-500 mr-1"></i> 10-Layer Defense Protocols:</span>
+            <span class="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-mono">Active</span>
+          </div>
+          <div class="grid grid-cols-2 gap-x-2 text-[9px] text-slate-500 pt-1">
+            <div>✓ PBKDF2 Salted Cryptography</div>
+            <div>✓ Constant-Time Equalizer</div>
+            <div>✓ Adaptive Rate Limiter</div>
+            <div>✓ Hardware Fingerprint Binding</div>
+            <div>✓ Ephemeral HMAC-SHA256 Token</div>
+            <div>✓ 15m Sliding Inactivity TTL</div>
+            <div>✓ Replay Nonce & Time Skew</div>
+            <div>✓ Strict Tenant Boundary</div>
+          </div>
+        </div>
+
+        <button type="submit" id="vaultSubmitBtn" class="w-full py-3.5 bg-gradient-royal hover:opacity-95 text-white font-black text-xs rounded-2xl shadow-xl shadow-orange-500/25 transition transform active:scale-98 flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-unlock-keyhole"></i>
+          <span>Verify Passcode & Unlock Desk</span>
+        </button>
+      </form>
+
+      <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+        <a href="/" class="hover:text-slate-700 font-semibold"><i class="fa-solid fa-arrow-left mr-1"></i> RevLoyal Home</a>
+        <a id="vaultCustomerAppLaunch" href="/customer.html" target="_blank" class="hover:text-amber-600 font-semibold">View Customer App <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: IMMUTABLE SECURITY AUDIT TRAIL LOGS -->
+  <!-- ============================================== -->
+  <div id="auditLogModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 animate-in zoom-in duration-200 max-h-[88vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 rounded-xl bg-slate-900 text-white flex items-center justify-center text-sm">
+            <i class="fa-solid fa-shield-virus"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-black text-slate-900">Layer 10: Security Audit Trail</h4>
+            <span class="text-[10px] text-slate-500">Immutable ledger of authentication, privilege and lockout events</span>
+          </div>
+        </div>
+        <button onclick="closeAuditLogModal()" class="w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-slate-200">
+          <i class="fa-solid fa-xmark text-xs"></i>
+        </button>
+      </div>
+
+      <div id="auditLogContent" class="space-y-2 text-xs">
+        <div class="text-center py-6 text-slate-400">Loading audit events...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/fingerprint.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/interactive-effects.js"></script>
+  <script>
+    function showAdminTab(tabId) {
+      document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.add('hidden'));
+      const activeEl = document.getElementById(tabId);
+      if (activeEl) activeEl.classList.remove('hidden');
+
+      document.querySelectorAll('.admin-tab-nav-btn').forEach(btn => {
+        if (btn.dataset.tab === tabId) {
+          btn.classList.add('bg-amber-500', 'text-white', 'shadow-xs');
+          btn.classList.remove('bg-white', 'text-slate-600');
+        } else {
+          btn.classList.remove('bg-amber-500', 'text-white', 'shadow-xs');
+          btn.classList.add('bg-white', 'text-slate-600');
+        }
+      });
+    }
+
+    function togglePasscodeVisibility() {
+      const input = document.getElementById('vaultPasscodeInput');
+      const icon = document.getElementById('vaultEyeIcon');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'fa-solid fa-eye text-xs text-amber-600';
+      } else {
+        input.type = 'password';
+        icon.className = 'fa-solid fa-eye-slash text-xs text-slate-400';
+      }
+    }
+
+    function openAuditLogModal() {
+      const modal = document.getElementById('auditLogModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        window.loadAuditLogs && window.loadAuditLogs();
+      }
+    }
+
+    function closeAuditLogModal() {
+      const modal = document.getElementById('auditLogModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+  </script>
+</body>
+</html>

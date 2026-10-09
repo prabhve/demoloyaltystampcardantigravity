@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --primary: #F59E0B;
+  --primary-dark: #D97706;
+  --accent-coral: #FF6B35;
+  --accent-red: #EF4444;
+  --success: #10B981;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: #FFFDF9;
+  color: #0F172A;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Gradients */
+.bg-gradient-royal {
+  background: linear-gradient(135deg, #FF6B35 0%, #F59E0B 50%, #EF4444 100%);
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #D97706 100%);
+}
+
+.bg-gradient-emerald {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(180deg, #0F172A 0%, #020617 100%);
+}
+
+/* Glassmorphism & Soft Panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(254, 243, 199, 0.7);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glow Shadows */
+.glow-gold {
+  box-shadow: 0 12px 30px -6px rgba(245, 158, 11, 0.35);
+}
+
+.glow-coral {
+  box-shadow: 0 12px 30px -6px rgba(255, 107, 53, 0.35);
+}
+
+.glow-emerald {
+  box-shadow: 0 12px 30px -6px rgba(16, 185, 129, 0.3);
+}
+
+/* Canvas Scratch Card Responsive Container */
+.scratch-container {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  height: 185px;
+  margin: 0 auto;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+  box-shadow: 0 12px 32px -8px rgba(180, 83, 9, 0.35);
+}
+
+.scratch-underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.scratch-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: grab;
+  touch-action: none;
+}
+
+.scratch-canvas:active {
+  cursor: grabbing;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: shimmer 2.5s infinite;
+}
+
+/* Modal Transitions & Backdrop */
+.modal-backdrop {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFDF9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FDE68A;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+/* Standee Print Styles */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #printStandeeArea, #printStandeeArea * {
+    visibility: visible !important;
+  }
+  #printStandeeArea {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 380px !important;
+    border: 2px dashed #000 !important;
+    padding: 24px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+}
+
+/* ======================================================== */
+/* MODERN INTERACTIVE ANIMATIONS & MICRO-INTERACTIONS       */
+/* ======================================================== */
+
+/* 1. Floating Physics (Hero phone simulator & floating badges) */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0.6deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.5deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6.5s ease-in-out infinite;
+}
+
+/* 2. Soft Golden Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.25), 0 10px 25px -5px rgba(245, 158, 11, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.55), 0 12px 30px -5px rgba(245, 158, 11, 0.4);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+/* 3. Scratch Card Beacon Halo */
+@keyframes beaconGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(245, 158, 11, 0);
+  }
+}
+
+.beacon-pulse {
+  animation: beaconGlow 2.4s infinite;
+}
+
+/* 4. Stamp Unlock Pop */
+@keyframes stampPop {
+  0% { transform: scale(0.6) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.22) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.stamp-active {
+  animation: stampPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* 5. Scroll Reveal Engine */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left.reveal-init {
+  transform: translateX(-35px);
+}
+.reveal-left.reveal-visible {
+  transform: translateX(0);
+}
+
+.reveal-right.reveal-init {
+  transform: translateX(35px);
+}
+.reveal-right.reveal-visible {
+  transform: translateX(0);
+}
+
+.reveal-scale.reveal-init {
+  transform: scale(0.92);
+}
+.reveal-scale.reveal-visible {
+  transform: scale(1);
+}
+
+/* 6. Card Hover 3D Lift & Shadow Elevation */
+.interactive-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.1), 0 10px 20px -8px rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* 7. Button Shiny Glaze Sweep */
+.btn-glaze {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glaze::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+.btn-glaze:hover::before {
+  animation: glazeSweep 0.85s ease forwards;
+}
+
+@keyframes glazeSweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* 8. Micro Badge Bounce on Hover */
+.interactive-badge:hover {
+  transform: translateY(-2px) scale(1.04);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+

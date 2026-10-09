@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RevLoyal AI — Smart Customer Loyalty Pass & 5-Star Google Review Platform</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#FFFDF9] text-slate-800 antialiased selection:bg-amber-200">
+
+  <!-- ======================================================== -->
+  <!-- 1. STICKY RESPONSIVE NAVBAR -->
+  <!-- ======================================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-amber-100/90 transition-all shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo & Brand -->
+      <a href="/" class="flex items-center space-x-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-royal flex items-center justify-center text-white shadow-lg shadow-orange-500/25 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-1.5">
+            <span class="text-xl font-black text-slate-900 tracking-tight font-serif">RevLoyal</span>
+            <span class="bg-gradient-royal text-white text-[10px] font-black px-1.5 py-0.5 rounded-md tracking-wider">AI</span>
+          </div>
+          <span class="text-[10px] text-amber-700 font-bold tracking-wider uppercase block -mt-0.5">SMART LOYALTY & REVIEWS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center space-x-8 text-xs font-extrabold text-slate-600">
+        <a href="#howItWorks" class="hover:text-amber-600 transition flex items-center space-x-1">
+          <span>How It Works</span>
+        </a>
+        <a href="#solutions" class="hover:text-amber-600 transition flex items-center space-x-1">
+          <span>Business Solutions</span>
+        </a>
+        <a href="#competitorAnalysis" class="hover:text-amber-600 transition flex items-center space-x-1">
+          <span>Deep Analysis</span>
+        </a>
+        <a href="#pricing" class="hover:text-amber-600 transition flex items-center space-x-1">
+          <span>Pricing Plans</span>
+        </a>
+        <a href="#liveDemos" class="hover:text-amber-600 transition flex items-center space-x-1">
+          <span>Live Demos</span>
+        </a>
+        <a href="#faq" class="hover:text-amber-600 transition flex items-center space-x-1">
+          <span>FAQ</span>
+        </a>
+      </nav>
+
+      <!-- Desktop Action Buttons -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <a href="admin.html?biz=royal-spice" class="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition">
+          <i class="fa-solid fa-user-shield text-amber-600"></i>
+          <span>Admin Login</span>
+        </a>
+        <button onclick="openCreateProfileModal()" class="px-5 py-2.5 rounded-2xl bg-gradient-royal hover:opacity-95 text-white font-extrabold text-xs shadow-lg shadow-orange-500/25 transition transform active:scale-95 flex items-center space-x-2">
+          <i class="fa-solid fa-plus-circle"></i>
+          <span>Create Business Profile</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center space-x-2 lg:hidden">
+        <button onclick="openCreateProfileModal()" class="px-3 py-1.5 rounded-xl bg-gradient-royal text-white font-bold text-[11px] shadow-sm sm:hidden">
+          Create Profile
+        </button>
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-base"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-amber-100 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+      <a href="#howItWorks" onclick="toggleMobileMenu()" class="block py-2 text-xs font-bold text-slate-700 hover:text-amber-600 border-b border-slate-50">How It Works</a>
+      <a href="#solutions" onclick="toggleMobileMenu()" class="block py-2 text-xs font-bold text-slate-700 hover:text-amber-600 border-b border-slate-50">Business Solutions</a>
+      <a href="#competitorAnalysis" onclick="toggleMobileMenu()" class="block py-2 text-xs font-bold text-slate-700 hover:text-amber-600 border-b border-slate-50">Deep Analysis & Comparisons</a>
+      <a href="#pricing" onclick="toggleMobileMenu()" class="block py-2 text-xs font-bold text-slate-700 hover:text-amber-600 border-b border-slate-50">Pricing Plans (From ₹99)</a>
+      <a href="#liveDemos" onclick="toggleMobileMenu()" class="block py-2 text-xs font-bold text-slate-700 hover:text-amber-600 border-b border-slate-50">Live Interactive Demos</a>
+      <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 text-xs font-bold text-slate-700 hover:text-amber-600">Frequently Asked Questions</a>
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="admin.html?biz=royal-spice" class="w-full py-2.5 rounded-xl bg-slate-100 text-slate-800 text-center font-bold text-xs">
+          <i class="fa-solid fa-user-shield text-amber-600 mr-1.5"></i> Admin Dashboard Login
+        </a>
+        <button onclick="toggleMobileMenu(); openCreateProfileModal();" class="w-full py-3 rounded-xl bg-gradient-royal text-white text-center font-black text-xs shadow-md">
+          <i class="fa-solid fa-plus-circle mr-1.5"></i> Create Free Business Profile (60s)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- 2. HERO SECTION WITH BALANCED 2-COLUMN LAYOUT -->
+  <!-- ======================================================== -->
+  <section class="relative pt-10 sm:pt-16 pb-20 overflow-hidden bg-gradient-to-b from-amber-50/60 via-white to-[#FFFDF9]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Copy & Value Proposition (7 cols) -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Trust Badge -->
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-bold border border-amber-200/80 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+            <span>Next-Gen AI Loyalty & Reputation Engine</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.14]">
+            Turn First-Time Walk-ins Into 
+            <span class="bg-gradient-royal bg-clip-text text-transparent">5-Star Regulars</span> 
+            in 60 Seconds.
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
+            Gamified touch scratch cards, a 6-stamp loyalty pass with 50% grand bumpers, and contextual AI Google review suggestions. 
+            <strong class="text-slate-900 font-extrabold">Zero mobile app downloads required for customers.</strong>
+          </p>
+
+          <!-- Primary Action Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+            <button onclick="openCreateProfileModal()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-royal text-white font-black text-sm shadow-xl shadow-orange-500/30 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2.5 btn-glaze pulse-glow">
+              <i class="fa-solid fa-store"></i>
+              <span>Create Free Business Profile</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+
+            <a href="#liveDemos" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white border border-slate-200 text-slate-800 font-extrabold text-sm shadow-sm hover:bg-slate-50 transition flex items-center justify-center space-x-2 interactive-badge">
+              <i class="fa-solid fa-mobile-screen text-amber-500"></i>
+              <span>Try Live Demos</span>
+            </a>
+          </div>
+
+          <!-- Metric Badges Row with Count-Up Animations -->
+          <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto lg:mx-0 text-left">
+            <div class="p-3.5 bg-white rounded-2xl border border-amber-100 shadow-xs interactive-card interactive-badge">
+              <span class="text-xl sm:text-2xl font-black text-slate-900 block font-serif" data-counter="3.8" data-suffix="x" data-decimals="1">3.8x</span>
+              <span class="text-[11px] text-slate-500 font-semibold leading-tight block">Repeat Visits</span>
+            </div>
+            <div class="p-3.5 bg-white rounded-2xl border border-amber-100 shadow-xs interactive-card interactive-badge">
+              <span class="text-xl sm:text-2xl font-black text-amber-600 block font-serif" data-counter="84" data-prefix="+" data-suffix="%" data-decimals="0">+84%</span>
+              <span class="text-[11px] text-slate-500 font-semibold leading-tight block">Google 5★ Reviews</span>
+            </div>
+            <div class="p-3.5 bg-white rounded-2xl border border-amber-100 shadow-xs interactive-card interactive-badge">
+              <span class="text-xl sm:text-2xl font-black text-emerald-600 block font-serif" data-counter="100" data-suffix="%" data-decimals="0">100%</span>
+              <span class="text-[11px] text-slate-500 font-semibold leading-tight block">Anti-Cheat Lock</span>
+            </div>
+            <div class="p-3.5 bg-white rounded-2xl border border-amber-100 shadow-xs interactive-card interactive-badge">
+              <span class="text-xl sm:text-2xl font-black text-blue-600 block font-serif" data-counter="0" data-decimals="0">0</span>
+              <span class="text-[11px] text-slate-500 font-semibold leading-tight block">App Downloads</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Phone Mockup Preview (5 cols) with Floating Parallax Badges -->
+        <div class="lg:col-span-5 flex justify-center relative">
+          
+          <!-- Floating Badge Left -->
+          <div class="absolute -top-3 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-xl border border-amber-200/90 text-[11px] font-black text-slate-800 flex items-center space-x-2 animate-float-slow z-20 hidden sm:flex">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <i class="fa-solid fa-qrcode text-amber-500 text-xs"></i>
+            <span>Instant 1-Sec QR Scan</span>
+          </div>
+
+          <!-- Floating Badge Right -->
+          <div class="absolute -bottom-3 -right-4 sm:-right-8 bg-slate-900/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-xl border border-slate-700 text-[11px] font-black text-white flex items-center space-x-2 animate-float-reverse z-20 hidden sm:flex">
+            <i class="fa-solid fa-trophy text-amber-400 text-xs"></i>
+            <span>6 Stamps = 50% Grand Bumper</span>
+          </div>
+
+          <div class="relative w-full max-w-[340px] bg-slate-900 rounded-[2.5rem] p-3 shadow-2xl border-4 border-slate-800 animate-float-slow hover:[animation-play-state:paused] transition-transform">
+            <!-- Speaker notch -->
+            <div class="w-24 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+              <div class="w-3 h-3 rounded-full bg-slate-700 mr-2"></div>
+              <div class="w-8 h-1 bg-slate-700 rounded-full"></div>
+            </div>
+
+            <!-- Phone Screen Content (Mini Simulator) -->
+            <div class="bg-[#FFFDF9] rounded-[2rem] p-4 text-slate-800 overflow-hidden space-y-3.5 text-left border border-slate-200">
+              
+              <!-- Mini Header -->
+              <div class="flex items-center justify-between pb-2 border-b border-amber-100">
+                <div class="flex items-center space-x-2">
+                  <div class="w-7 h-7 rounded-lg bg-gradient-royal flex items-center justify-center text-white text-xs">
+                    <i class="fa-solid fa-crown"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 leading-none">The Royal Spice</h4>
+                    <span class="text-[9px] text-amber-700 font-bold uppercase">Table 4 • Live Pass</span>
+                  </div>
+                </div>
+                <span class="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  🔒 Verified
+                </span>
+              </div>
+
+              <!-- Mini Scratch Card Mockup -->
+              <div class="p-3 bg-gradient-to-br from-amber-400 via-yellow-400 to-amber-500 rounded-2xl text-center text-amber-950 shadow-sm relative overflow-hidden">
+                <div class="text-[10px] font-black uppercase tracking-wider mb-1">✨ Touch Scratch Card ✨</div>
+                <div class="py-2.5 px-3 bg-white/90 rounded-xl border border-yellow-200">
+                  <span class="text-xs font-black text-slate-900 block">🎉 15% OFF FOOD BILL</span>
+                  <span class="text-[9px] font-mono text-amber-700 font-bold">FLAT15ROYAL</span>
+                </div>
+                <span class="text-[9px] text-amber-900 font-bold mt-1.5 block">Collects Stamp #4 towards 50% Grand Bumper</span>
+              </div>
+
+              <!-- Mini Stamp Grid -->
+              <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                <div class="flex items-center justify-between text-[10px] font-bold mb-1.5">
+                  <span class="text-slate-700">Royal Stamps Pass</span>
+                  <span class="text-emerald-600">4 of 6 Collected</span>
+                </div>
+                <div class="grid grid-cols-6 gap-1">
+                  <div class="h-6 rounded bg-emerald-500 text-white flex items-center justify-center text-[9px]"><i class="fa-solid fa-check"></i></div>
+                  <div class="h-6 rounded bg-emerald-500 text-white flex items-center justify-center text-[9px]"><i class="fa-solid fa-check"></i></div>
+                  <div class="h-6 rounded bg-emerald-500 text-white flex items-center justify-center text-[9px]"><i class="fa-solid fa-check"></i></div>
+                  <div class="h-6 rounded bg-emerald-500 text-white flex items-center justify-center text-[9px]"><i class="fa-solid fa-check"></i></div>
+                  <div class="h-6 rounded bg-amber-50 border border-dashed border-amber-500 text-amber-600 flex items-center justify-center text-[9px] font-bold">5</div>
+                  <div class="h-6 rounded bg-amber-500 text-white flex items-center justify-center text-[9px] font-bold shadow-sm">👑</div>
+                </div>
+              </div>
+
+              <!-- Mini AI Review Box -->
+              <div class="p-2.5 bg-white rounded-xl border border-slate-200">
+                <div class="flex items-center justify-between text-[10px] font-bold mb-1">
+                  <span class="text-slate-800">Google Review AI</span>
+                  <div class="text-amber-400 text-[10px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+                <p class="text-[9px] text-slate-600 leading-tight bg-slate-50 p-1.5 rounded-lg border border-slate-100">
+                  "Authentic Dal Makhani and royal mocktails! 10/10 service! ⭐⭐⭐⭐⭐"
+                </p>
+                <button class="w-full mt-1.5 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg flex items-center justify-center space-x-1">
+                  <i class="fa-brands fa-google text-red-400 text-[9px]"></i>
+                  <span>1-Click Copy & Post</span>
+                </button>
+              </div>
+
+              <!-- Test Button -->
+              <a href="/customer.html?biz=royal-spice" target="_blank" class="block w-full py-2 bg-gradient-royal text-white text-center rounded-xl font-bold text-xs shadow-sm">
+                Launch Live Simulator <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 3. QUICK LIVE DEMO LAUNCH BAR -->
+  <!-- ======================================================== -->
+  <section id="liveDemos" class="py-14 bg-white border-y border-amber-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+          Instant Hands-on Experience
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+          Test-Drive Live Business Demos
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Click any business below to test the exact customer scan, scratch card, and AI review journey:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Restaurant Demo -->
+        <a href="/customer.html?biz=royal-spice&table=Table%204" target="_blank" class="p-5 rounded-2xl border border-amber-200 bg-gradient-to-b from-amber-50/50 to-white hover:border-amber-400 hover:shadow-lg transition-all group flex flex-col justify-between tilt-card interactive-card">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-xl shadow-md shadow-amber-500/20 mb-3 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-fire-burner"></i>
+            </div>
+            <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider">Restaurant & Fine Dine</span>
+            <h3 class="text-base font-extrabold text-slate-900 mt-0.5">The Royal Spice Bistro</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Scratch for sizzling brownie, 6-stamp 50% grand bumper, and AI review generator.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-700">
+            <span>Launch Diner View</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+
+        <!-- Cafe Demo -->
+        <a href="/customer.html?biz=cafe-bliss&table=Table%202" target="_blank" class="p-5 rounded-2xl border border-orange-200 bg-gradient-to-b from-orange-50/50 to-white hover:border-orange-400 hover:shadow-lg transition-all group flex flex-col justify-between tilt-card interactive-card">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-orange-500 text-white flex items-center justify-center text-xl shadow-md shadow-orange-500/20 mb-3 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-mug-hot"></i>
+            </div>
+            <span class="text-[10px] font-bold text-orange-700 uppercase tracking-wider">Cafe & Roastery</span>
+            <h3 class="text-base font-extrabold text-slate-900 mt-0.5">Cafe Bliss & Bakery</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Free Caramel Latte scratch card, sourdough pizza combo bumper & artisanal coffee reviews.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-orange-100 flex items-center justify-between text-xs font-bold text-orange-700">
+            <span>Launch Cafe View</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+
+        <!-- Hotel Demo -->
+        <a href="/customer.html?biz=grand-regency&table=Suite%20502" target="_blank" class="p-5 rounded-2xl border border-blue-200 bg-gradient-to-b from-blue-50/50 to-white hover:border-blue-400 hover:shadow-lg transition-all group flex flex-col justify-between tilt-card interactive-card">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-xl shadow-md shadow-blue-500/20 mb-3 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-hotel"></i>
+            </div>
+            <span class="text-[10px] font-bold text-blue-700 uppercase tracking-wider">Hotel & Luxury Resort</span>
+            <h3 class="text-base font-extrabold text-slate-900 mt-0.5">The Grand Regency</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">High tea perk, 50% off suite bumper offer, and 5-star hospitality reviews.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-blue-100 flex items-center justify-between text-xs font-bold text-blue-700">
+            <span>Launch Guest View</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+
+        <!-- Salon Demo -->
+        <a href="/customer.html?biz=glam-studio&table=Station%203" target="_blank" class="p-5 rounded-2xl border border-purple-200 bg-gradient-to-b from-purple-50/50 to-white hover:border-purple-400 hover:shadow-lg transition-all group flex flex-col justify-between tilt-card interactive-card">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-xl shadow-md shadow-purple-500/20 mb-3 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-spa"></i>
+            </div>
+            <span class="text-[10px] font-bold text-purple-700 uppercase tracking-wider">Salon & Wellness Spa</span>
+            <h3 class="text-base font-extrabold text-slate-900 mt-0.5">Glam & Glow Salon</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Hair spa gifts, 50% treatment bumper pass, and styling praise reviews.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-purple-100 flex items-center justify-between text-xs font-bold text-purple-700">
+            <span>Launch Client View</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 4. HOW IT WORKS (3-STEP VISUAL JOURNEY) -->
+  <!-- ======================================================== -->
+  <section id="howItWorks" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs font-black uppercase tracking-wider text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+        Engineered for Viral Customer Engagement
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+        How The Automated Flow Works In 3 Simple Steps
+      </h2>
+      <p class="text-slate-600 mt-2 text-sm">
+        Zero app installation, zero training needed for your staff.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Step 1 -->
+      <div class="bg-white p-7 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between tilt-card interactive-card">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-black font-serif">
+              01
+            </div>
+            <span class="text-[10px] font-black uppercase text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+              1-Second Scan
+            </span>
+          </div>
+          <h3 class="text-lg font-black text-slate-900">Guest Scans Table / Counter QR</h3>
+          <p class="text-slate-600 text-xs mt-2.5 leading-relaxed">
+            Customer points their regular camera at your table tent card. The browser opens instantly without forcing any 50MB app download.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs text-emerald-600 font-bold">
+          <i class="fa-solid fa-circle-check mr-2"></i>
+          <span>Auto-recognizes returning regular guests</span>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-white p-7 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between tilt-card interactive-card">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-black font-serif">
+              02
+            </div>
+            <span class="text-[10px] font-black uppercase text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+              Gamified Win
+            </span>
+          </div>
+          <h3 class="text-lg font-black text-slate-900">Scratches Canvas & Collects Stamps</h3>
+          <p class="text-slate-600 text-xs mt-2.5 leading-relaxed">
+            Real touch scratching with glittering gold cover, fanfare sound, and confetti explosion. Each visit earns a stamp towards the 6th visit 50% Grand Bumper!
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs text-emerald-600 font-bold">
+          <i class="fa-solid fa-circle-check mr-2"></i>
+          <span>Strict 1 Device = 1 User Anti-Cheat Lock</span>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-white p-7 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between tilt-card interactive-card">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl font-black font-serif">
+              03
+            </div>
+            <span class="text-[10px] font-black uppercase text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+              5★ Reputation
+            </span>
+          </div>
+          <h3 class="text-lg font-black text-slate-900">AI Crafts 5-Star Google Reviews</h3>
+          <p class="text-slate-600 text-xs mt-2.5 leading-relaxed">
+            Rating 5 stars instantly generates rich culinary or service praises ready to paste to Google Maps in 1 click. Negative ratings are shielded privately.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs text-emerald-600 font-bold">
+          <i class="fa-solid fa-circle-check mr-2"></i>
+          <span>Skyrockets local Google Maps ranking</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 5. DEEP COMPETITIVE ANALYSIS OF OTHER TOOLS -->
+  <!-- ======================================================== -->
+  <section id="competitorAnalysis" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-400 bg-amber-900/60 px-3.5 py-1 rounded-full border border-amber-700/60">
+          In-Depth Market & Competitor Analysis
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black mt-3">
+          Why RevLoyal AI Demolishes Legacy Alternatives
+        </h2>
+        <p class="text-slate-400 mt-2 text-sm">
+          A side-by-side technical and economic breakdown vs. traditional loyalty tools.
+        </p>
+      </div>
+
+      <!-- Responsive Comparison Table -->
+      <div class="overflow-x-auto rounded-3xl border border-slate-700/80 bg-slate-800/60 backdrop-blur-md shadow-2xl">
+        <table class="w-full text-left border-collapse min-w-[720px]">
+          <thead>
+            <tr class="border-b border-slate-700 text-xs font-bold uppercase tracking-wider text-slate-400 bg-slate-800/90">
+              <th class="py-4 px-5">Capability / Metric</th>
+              <th class="py-4 px-5 bg-amber-500/20 text-amber-300 font-extrabold border-x border-amber-500/30">
+                ⭐ RevLoyal AI (Our Platform)
+              </th>
+              <th class="py-4 px-5 text-slate-400">Paper Punch Cards</th>
+              <th class="py-4 px-5 text-slate-400">SMS Tools (Petpooja / LimeTray)</th>
+              <th class="py-4 px-5 text-slate-400">Heavy Apps (Zomato / Birdeye)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-700/60 text-xs">
+            <tr class="hover:bg-slate-750/50">
+              <td class="py-4 px-5 font-bold text-slate-200">Customer App Install Needed?</td>
+              <td class="py-4 px-5 bg-amber-500/10 font-black text-emerald-400 border-x border-amber-500/30">
+                ✅ Zero Download (1.2s Instant QR)
+              </td>
+              <td class="py-4 px-5 text-slate-400">✅ None (Physical card)</td>
+              <td class="py-4 px-5 text-slate-400">✅ None (SMS link)</td>
+              <td class="py-4 px-5 text-rose-400 font-bold">❌ 50MB+ App download friction</td>
+            </tr>
+
+            <tr class="hover:bg-slate-750/50">
+              <td class="py-4 px-5 font-bold text-slate-200">Hardware Anti-Cheat Lock</td>
+              <td class="py-4 px-5 bg-amber-500/10 font-black text-emerald-400 border-x border-amber-500/30">
+                ✅ 1 Device = 1 User Physical Lock
+              </td>
+              <td class="py-4 px-5 text-rose-400">❌ Fraud rampant (Staff stamps friends)</td>
+              <td class="py-4 px-5 text-rose-400">❌ Multiple fake phone numbers</td>
+              <td class="py-4 px-5 text-amber-400">⚠️ Weak SMS OTP only</td>
+            </tr>
+
+            <tr class="hover:bg-slate-750/50">
+              <td class="py-4 px-5 font-bold text-slate-200">Gamified Touch Scratch Card + Audio</td>
+              <td class="py-4 px-5 bg-amber-500/10 font-black text-emerald-400 border-x border-amber-500/30">
+                ✅ Real HTML5 Canvas + Fanfare + Confetti
+              </td>
+              <td class="py-4 px-5 text-rose-400">❌ Zero excitement</td>
+              <td class="py-4 px-5 text-rose-400">❌ Boring plain text messages</td>
+              <td class="py-4 px-5 text-amber-400">⚠️ Generic discount banners</td>
+            </tr>
+
+            <tr class="hover:bg-slate-750/50">
+              <td class="py-4 px-5 font-bold text-slate-200">AI Star-to-Review Generator</td>
+              <td class="py-4 px-5 bg-amber-500/10 font-black text-emerald-400 border-x border-amber-500/30">
+                ✅ Contextual 5★ praises + 1-click copy
+              </td>
+              <td class="py-4 px-5 text-rose-400">❌ No Google integration</td>
+              <td class="py-4 px-5 text-rose-400">❌ Customer writes nothing ("ok food")</td>
+              <td class="py-4 px-5 text-rose-400">❌ Manual typing required</td>
+            </tr>
+
+            <tr class="hover:bg-slate-750/50">
+              <td class="py-4 px-5 font-bold text-slate-200">Negative Review Firewall (1-3★)</td>
+              <td class="py-4 px-5 bg-amber-500/10 font-black text-emerald-400 border-x border-amber-500/30">
+                ✅ Private Manager Resolution Box
+              </td>
+              <td class="py-4 px-5 text-rose-400">❌ Customer fumes quietly & rants later</td>
+              <td class="py-4 px-5 text-rose-400">❌ Links directly to Google rants</td>
+              <td class="py-4 px-5 text-rose-400">❌ Drops your public business star score</td>
+            </tr>
+
+            <tr class="hover:bg-slate-750/50">
+              <td class="py-4 px-5 font-bold text-slate-200">Monthly Cost</td>
+              <td class="py-4 px-5 bg-amber-500/10 font-black text-amber-300 border-x border-amber-500/30 text-sm">
+                ₹99 to ₹179 / month
+              </td>
+              <td class="py-4 px-5 text-slate-400">₹600 - ₹1,200 (Continuous printing)</td>
+              <td class="py-4 px-5 text-rose-400 font-bold">₹2,500 - ₹5,000 / month</td>
+              <td class="py-4 px-5 text-rose-400 font-bold">₹6,000 - ₹15,000 / mo + Commission</td>
+            </tr>
+
+            <tr class="hover:bg-slate-750/50">
+              <td class="py-4 px-5 font-bold text-slate-200">Time to Deploy</td>
+              <td class="py-4 px-5 bg-amber-500/10 font-black text-emerald-400 border-x border-amber-500/30">
+                ✅ 60 Seconds Instant Setup
+              </td>
+              <td class="py-4 px-5 text-slate-400">3-5 Days design & delivery</td>
+              <td class="py-4 px-5 text-rose-400">2-3 Weeks POS integration delay</td>
+              <td class="py-4 px-5 text-rose-400">1 Month contract approval</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 6. PRICING & SUBSCRIPTION PLANS (MONTHLY VS ANNUAL) -->
+  <!-- ======================================================== -->
+  <section id="pricing" class="py-20 bg-gradient-to-b from-[#FFFDF9] via-amber-50/40 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
+          Transparent Affordable Pricing
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+          Cheaper Than A Single Cup Of Coffee Per Month
+        </h2>
+        <p class="text-slate-600 mt-2 text-sm">
+          Pick only what you need: standalone Loyalty, standalone AI Reviews, or the complete Pro Bundle.
+        </p>
+
+        <!-- Billing Cycle Toggle Switch -->
+        <div class="mt-8 inline-flex items-center p-1.5 bg-slate-200/80 rounded-2xl border border-slate-300">
+          <button id="toggleMonthlyBtn" onclick="switchBilling('monthly')" class="px-5 py-2 rounded-xl text-xs font-extrabold bg-white text-slate-900 shadow-sm transition">
+            Monthly Billing
+          </button>
+          <button id="toggleAnnualBtn" onclick="switchBilling('annual')" class="px-5 py-2 rounded-xl text-xs font-extrabold text-slate-600 hover:text-slate-900 transition flex items-center space-x-1.5">
+            <span>Annual Billing</span>
+            <span class="bg-emerald-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase">Save 20% + 2 Mo Free</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3 Plans Cards Grid with Equal Heights -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        
+        <!-- PLAN 1: LOYALTY CARD ONLY -->
+        <div class="bg-white rounded-3xl p-7 border-2 border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-xl transition-all h-full flex flex-col justify-between tilt-card pricing-card interactive-card">
+          <div>
+            <span class="text-[10px] font-black tracking-wider uppercase text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+              Loyalty Only
+            </span>
+            <h3 class="text-xl font-black text-slate-900 mt-3">Customer Loyalty Pass</h3>
+            <p class="text-xs text-slate-500 mt-1">Gamified repeat visits & customer retention</p>
+
+            <div class="my-6">
+              <div class="flex items-baseline space-x-1">
+                <span class="text-4xl font-black text-slate-900 font-serif plan-price-loyalty">₹99</span>
+                <span class="text-xs text-slate-500 font-bold plan-period">/ month</span>
+              </div>
+              <span class="text-[11px] text-emerald-600 font-bold block mt-1 plan-annual-savings hidden">
+                Billed annually as ₹999/yr (₹83/mo)
+              </span>
+            </div>
+
+            <!-- Features list -->
+            <ul class="space-y-3 text-xs text-slate-600 border-t border-slate-100 pt-5">
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Interactive HTML5 Canvas Scratch Cards</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>6-Stamp Visit Loyalty Tracker</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Strict Hardware Anti-Cheat (1 Device = 1 User)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Automated 6th Stamp 50% Grand Bumper</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Printable Table QR Standee Station</span>
+              </li>
+              <li class="flex items-start text-slate-400">
+                <i class="fa-solid fa-xmark text-slate-300 mt-0.5 mr-2"></i>
+                <span class="line-through">AI Google Review Engine</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openCreateProfileModal('loyalty_only')" class="mt-8 w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-xs font-extrabold shadow-md transition active:scale-98 btn-glaze">
+            Choose Loyalty Plan
+          </button>
+        </div>
+
+        <!-- PLAN 2: AI GOOGLE REVIEW CARD ONLY -->
+        <div class="bg-white rounded-3xl p-7 border-2 border-slate-200 shadow-sm hover:border-blue-400 hover:shadow-xl transition-all h-full flex flex-col justify-between tilt-card pricing-card interactive-card">
+          <div>
+            <span class="text-[10px] font-black tracking-wider uppercase text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+              Reviews Only
+            </span>
+            <h3 class="text-xl font-black text-slate-900 mt-3">AI Google Review Card</h3>
+            <p class="text-xs text-slate-500 mt-1">Explode your 5-star Google Maps presence</p>
+
+            <div class="my-6">
+              <div class="flex items-baseline space-x-1">
+                <span class="text-4xl font-black text-slate-900 font-serif plan-price-review">₹99</span>
+                <span class="text-xs text-slate-500 font-bold plan-period">/ month</span>
+              </div>
+              <span class="text-[11px] text-emerald-600 font-bold block mt-1 plan-annual-savings hidden">
+                Billed annually as ₹999/yr (₹83/mo)
+              </span>
+            </div>
+
+            <!-- Features list -->
+            <ul class="space-y-3 text-xs text-slate-600 border-t border-slate-100 pt-5">
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>AI Star-to-Review Suggestion Engine (1-5★)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>1-Click Clipboard Copy & Direct Google Maps CTA</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Negative Review Firewall (Private Manager Box)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Live Embedded Google Review Profile Board</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Counter QR Standee with Google Badge</span>
+              </li>
+              <li class="flex items-start text-slate-400">
+                <i class="fa-solid fa-xmark text-slate-300 mt-0.5 mr-2"></i>
+                <span class="line-through">Gamified Scratch & Stamp Cards</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openCreateProfileModal('review_only')" class="mt-8 w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl text-xs font-extrabold shadow-md shadow-blue-500/20 transition active:scale-98 btn-glaze">
+            Choose AI Review Plan
+          </button>
+        </div>
+
+        <!-- PLAN 3: ALL-IN-ONE PRO BUNDLE (RECOMMENDED) -->
+        <div class="bg-gradient-to-b from-amber-500/10 via-white to-amber-50/40 rounded-3xl p-7 border-2 border-amber-400 shadow-xl relative h-full flex flex-col justify-between transform md:-translate-y-2 tilt-card pricing-card interactive-card pulse-glow">
+          <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-royal text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-wider shadow">
+            ⭐ MOST POPULAR BUNDLE (Save 25%)
+          </div>
+
+          <div>
+            <span class="text-[10px] font-black tracking-wider uppercase text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full border border-amber-300">
+              All-In-One Pro
+            </span>
+            <h3 class="text-xl font-black text-slate-900 mt-3">Full Growth Bundle</h3>
+            <p class="text-xs text-slate-600 mt-1">Complete AI Loyalty Pass & 5-Star Reputation Engine</p>
+
+            <div class="my-6">
+              <div class="flex items-baseline space-x-1">
+                <span class="text-4xl font-black text-amber-600 font-serif plan-price-pro">₹179</span>
+                <span class="text-xs text-slate-500 font-bold plan-period">/ month</span>
+                <span class="text-xs text-slate-400 line-through ml-1 plan-price-original">₹198</span>
+              </div>
+              <span class="text-[11px] text-emerald-600 font-bold block mt-1 plan-annual-savings hidden">
+                Billed annually as ₹1,599/yr (₹133/mo)
+              </span>
+            </div>
+
+            <!-- Features list -->
+            <ul class="space-y-3 text-xs text-slate-700 border-t border-amber-200/80 pt-5 font-medium">
+              <li class="flex items-start font-bold text-slate-900">
+                <i class="fa-solid fa-crown text-amber-500 mt-0.5 mr-2"></i>
+                <span>EVERYTHING in Loyalty Pass (Canvas Scratch & Stamps)</span>
+              </li>
+              <li class="flex items-start font-bold text-slate-900">
+                <i class="fa-solid fa-crown text-amber-500 mt-0.5 mr-2"></i>
+                <span>EVERYTHING in AI Google Review Booster & Shield</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Multi-Table / Multi-Counter Instant Standee Generator</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Unlimited Scans & Unlimited Customer Profiles</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Export Customer Records (Excel / CSV)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa-solid fa-check text-emerald-500 mt-0.5 mr-2"></i>
+                <span>Dedicated 24/7 Setup Assistance</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openCreateProfileModal('pro_bundle')" class="mt-8 w-full py-4 bg-gradient-royal hover:opacity-95 text-white rounded-2xl text-xs font-black shadow-lg shadow-orange-500/30 transition active:scale-98 btn-glaze">
+            Get Complete Pro Bundle 🚀
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 7. FREQUENTLY ASKED QUESTIONS (FAQ) -->
+  <!-- ======================================================== -->
+  <section id="faq" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10">
+      <span class="text-xs font-black uppercase tracking-wider text-amber-600 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
+        Got Questions?
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="space-y-3">
+      
+      <details class="group bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs cursor-pointer">
+        <summary class="flex items-center justify-between font-bold text-sm text-slate-900 list-none">
+          <span>Do my customers need to install an app from App Store or Play Store?</span>
+          <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <p class="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          <strong>No, absolutely not!</strong> When your customer scans the QR code with their regular smartphone camera, the loyalty pass and scratch card open directly inside their native mobile browser in 1.2 seconds. This removes 100% of download friction.
+        </p>
+      </details>
+
+      <details class="group bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs cursor-pointer">
+        <summary class="flex items-center justify-between font-bold text-sm text-slate-900 list-none">
+          <span>How does the 1 Device = 1 User Anti-Cheat protection work?</span>
+          <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <p class="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          Our system runs a client-side hardware fingerprint (combining screen metrics, WebGL GPU signature, canvas hash, and persistent storage token). Once a physical phone registers a phone number, it is locked to that account. Nobody can enter 10 fake phone numbers on the same phone to exploit rewards!
+        </p>
+      </details>
+
+      <details class="group bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs cursor-pointer">
+        <summary class="flex items-center justify-between font-bold text-sm text-slate-900 list-none">
+          <span>Can I print QR standees for Table 1 to 20 or the Billing Counter?</span>
+          <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <p class="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          Yes! Inside your Admin Dashboard, there is a built-in <strong>Table QR Standee Station</strong>. Simply select Table 1, Table 2, or Billing Counter, and click "Print Table Standee". It outputs a beautiful print-ready tabletop tent card formatted for acrylic stands.
+        </p>
+      </details>
+
+      <details class="group bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs cursor-pointer">
+        <summary class="flex items-center justify-between font-bold text-sm text-slate-900 list-none">
+          <span>How does the Negative Review Firewall protect my Google Maps score?</span>
+          <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <p class="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          If a customer taps 4 or 5 stars, the AI generates positive praise and directs them to post on Google Maps. If they select 1, 2, or 3 stars, the system displays an optional <strong>Private Manager Resolution Box</strong> so you resolve their issue privately at the table before they leave an angry public review!
+        </p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 8. FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="bg-slate-950 text-slate-400 py-14 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-royal flex items-center justify-center text-white font-bold">
+          <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+        </div>
+        <div>
+          <span class="text-sm font-bold text-white block">RevLoyal AI</span>
+          <span class="text-[11px] text-slate-500">The Automated Customer Retention & 5-Star Review SaaS</span>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold">
+        <a href="#howItWorks" class="hover:text-white transition">How It Works</a>
+        <a href="#pricing" class="hover:text-white transition">Pricing Plans</a>
+        <a href="#competitorAnalysis" class="hover:text-white transition">Deep Analysis</a>
+        <a href="admin.html?biz=royal-spice" class="hover:text-white transition">Admin Dashboard</a>
+        <button onclick="openCreateProfileModal()" class="text-amber-400 hover:text-amber-300 font-bold">Create Profile</button>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-900 text-[11px] text-center text-slate-600">
+      © 2026 RevLoyal AI. Built with Hardware Device Fingerprint Anti-Cheat Technology.
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- 9. MODAL: CREATE BUSINESS PROFILE (WELL-ADJUSTED & SCROLLABLE) -->
+  <!-- ======================================================== -->
+  <div id="createProfileModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-amber-200 animate-in zoom-in duration-200 relative my-6 max-h-[92vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button onclick="closeCreateProfileModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 bg-gradient-royal rounded-2xl mx-auto flex items-center justify-center text-white text-2xl shadow-lg shadow-orange-500/25 mb-3">
+          <i class="fa-solid fa-store"></i>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Create Your Business Profile</h3>
+        <p class="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+          Set up in 60 seconds to get your live customer QR link & restaurant/business admin desk.
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form id="createProfileForm" class="space-y-4 text-left">
+        
+        <!-- Category Selector -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5">Business Category *</label>
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            <label class="biz-cat-label flex flex-col items-center p-2 rounded-xl border-2 border-amber-400 bg-amber-50 cursor-pointer text-center transition">
+              <input type="radio" name="bizType" value="restaurant" checked class="hidden">
+              <i class="fa-solid fa-fire-burner text-amber-600 text-base mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">Restaurant</span>
+            </label>
+            <label class="biz-cat-label flex flex-col items-center p-2 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer text-center transition">
+              <input type="radio" name="bizType" value="cafe" class="hidden">
+              <i class="fa-solid fa-mug-hot text-orange-500 text-base mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">Cafe</span>
+            </label>
+            <label class="biz-cat-label flex flex-col items-center p-2 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer text-center transition">
+              <input type="radio" name="bizType" value="hotel" class="hidden">
+              <i class="fa-solid fa-hotel text-blue-500 text-base mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">Hotel</span>
+            </label>
+            <label class="biz-cat-label flex flex-col items-center p-2 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer text-center transition">
+              <input type="radio" name="bizType" value="salon" class="hidden">
+              <i class="fa-solid fa-spa text-purple-500 text-base mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">Salon</span>
+            </label>
+            <label class="biz-cat-label flex flex-col items-center p-2 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer text-center transition">
+              <input type="radio" name="bizType" value="retail" class="hidden">
+              <i class="fa-solid fa-bag-shopping text-emerald-500 text-base mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">Retail</span>
+            </label>
+            <label class="biz-cat-label flex flex-col items-center p-2 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer text-center transition">
+              <input type="radio" name="bizType" value="clinic" class="hidden">
+              <i class="fa-solid fa-stethoscope text-red-500 text-base mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">Clinic</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Business Name -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Business / Brand Name *</label>
+          <div class="relative">
+            <i class="fa-regular fa-building absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+            <input type="text" id="newBizName" required class="w-full text-xs pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 outline-none" placeholder="e.g. Saffron Bistro, Barista Beans, Grand Vista Hotel">
+          </div>
+        </div>
+
+        <!-- Tagline -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Catchy Tagline</label>
+          <input type="text" id="newBizTagline" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 outline-none" placeholder="e.g. Authentic Flavors, Crafted with Passion & Rewards">
+        </div>
+
+        <!-- Contact Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+            <div class="relative">
+              <i class="fa-solid fa-phone absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+              <input type="tel" id="newBizPhone" required class="w-full text-xs pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 outline-none font-mono" placeholder="+91 98765 43210">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">City / Location</label>
+            <div class="relative">
+              <i class="fa-solid fa-location-dot absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+              <input type="text" id="newBizCity" class="w-full text-xs pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 outline-none" placeholder="e.g. New Delhi, Bengaluru">
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Review Write URL -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center justify-between">
+            <span>Google Maps Review Page Link *</span>
+            <span class="text-[10px] text-amber-700 font-bold">Where guests post reviews</span>
+          </label>
+          <div class="relative">
+            <i class="fa-brands fa-google absolute left-3.5 top-3 text-blue-500 text-xs"></i>
+            <input type="url" id="newBizGoogleUrl" class="w-full text-xs pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 outline-none font-mono" placeholder="https://search.google.com/local/writereview?placeid=..." value="https://search.google.com/local/writereview">
+          </div>
+        </div>
+
+        <!-- Selected Plan & Admin PIN -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Subscription Plan</label>
+            <select id="newBizPlan" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white font-bold">
+              <option value="pro_bundle" selected>⭐ All-in-One Pro Bundle (₹179/mo)</option>
+              <option value="loyalty_only">🎁 Loyalty Scratch & Stamps (₹99/mo)</option>
+              <option value="review_only">⭐ AI Google Reviews Only (₹99/mo)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Admin Security PIN (for staff)</label>
+            <input type="password" id="newBizAdminPin" maxlength="6" value="1234" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono tracking-widest text-center" placeholder="1234">
+          </div>
+        </div>
+
+        <!-- Security Note -->
+        <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-[11px] text-amber-900 flex items-center space-x-2">
+          <i class="fa-solid fa-shield-halved text-emerald-600 text-xs"></i>
+          <span>Instant generation: Customer QR standees & Admin panel ready immediately!</span>
+        </div>
+
+        <button type="submit" id="createProfileSubmitBtn" class="w-full py-4 bg-gradient-royal hover:opacity-95 text-white font-black text-xs rounded-xl shadow-lg shadow-orange-500/30 transition transform active:scale-98">
+          Launch My Business & Generate QR Code 🚀
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- 10. MODAL: CELEBRATION SUCCESS POPUP -->
+  <!-- ======================================================== -->
+  <div id="bizSuccessModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border-2 border-emerald-300 text-center animate-in zoom-in duration-300">
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-3xl mx-auto flex items-center justify-center text-3xl mb-4 shadow-sm">
+        🎉
+      </div>
+      <h3 class="text-xl font-black text-slate-900 tracking-tight">Your Business Profile Is Live!</h3>
+      <p id="successBizName" class="text-sm font-bold text-amber-600 my-1">The Royal Spice Bistro</p>
+      <p class="text-xs text-slate-500 mb-6">
+        Your dedicated customer loyalty pass and management dashboard are active now.
+      </p>
+
+      <div class="space-y-3">
+        <a id="successCustomerLink" href="#" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gradient-royal text-white font-bold text-xs shadow-md transition flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <span>Open Customer Experience Link</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+
+        <a id="successAdminLink" href="#" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-md transition flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Open Business Admin Dashboard</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+
+      <button onclick="closeBizSuccessModal()" class="mt-6 text-xs text-slate-400 hover:text-slate-600 font-bold underline">
+        Close Window
+      </button>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- 11. CLIENT SCRIPTS -->
+  <!-- ======================================================== -->
+  <script>
+    let currentBillingCycle = 'monthly';
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('mobileMenuIcon');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.className = 'fa-solid fa-xmark text-base';
+      } else {
+        menu.classList.add('hidden');
+        icon.className = 'fa-solid fa-bars text-base';
+      }
+    }
+
+    function switchBilling(cycle) {
+      currentBillingCycle = cycle;
+      const toggleMonthly = document.getElementById('toggleMonthlyBtn');
+      const toggleAnnual = document.getElementById('toggleAnnualBtn');
+      const loyaltyPrice = document.querySelector('.plan-price-loyalty');
+      const reviewPrice = document.querySelector('.plan-price-review');
+      const proPrice = document.querySelector('.plan-price-pro');
+      const origPrice = document.querySelector('.plan-price-original');
+      const periods = document.querySelectorAll('.plan-period');
+      const annualSavings = document.querySelectorAll('.plan-annual-savings');
+
+      if (cycle === 'annual') {
+        toggleAnnual.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+        toggleAnnual.classList.remove('text-slate-600');
+        toggleMonthly.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+        toggleMonthly.classList.add('text-slate-600');
+
+        if (loyaltyPrice) loyaltyPrice.textContent = '₹999';
+        if (reviewPrice) reviewPrice.textContent = '₹999';
+        if (proPrice) proPrice.textContent = '₹1,599';
+        if (origPrice) origPrice.textContent = '₹2,148';
+        periods.forEach(p => p.textContent = '/ year');
+        annualSavings.forEach(s => s.classList.remove('hidden'));
+      } else {
+        toggleMonthly.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+        toggleMonthly.classList.remove('text-slate-600');
+        toggleAnnual.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+        toggleAnnual.classList.add('text-slate-600');
+
+        if (loyaltyPrice) loyaltyPrice.textContent = '₹99';
+        if (reviewPrice) reviewPrice.textContent = '₹99';
+        if (proPrice) proPrice.textContent = '₹179';
+        if (origPrice) origPrice.textContent = '₹198';
+        periods.forEach(p => p.textContent = '/ month');
+        annualSavings.forEach(s => s.classList.add('hidden'));
+      }
+    }
+
+    function openCreateProfileModal(selectedPlan = 'pro_bundle') {
+      const modal = document.getElementById('createProfileModal');
+      const planSelect = document.getElementById('newBizPlan');
+      if (planSelect && selectedPlan) {
+        planSelect.value = selectedPlan;
+      }
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeCreateProfileModal() {
+      const modal = document.getElementById('createProfileModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function closeBizSuccessModal() {
+      const modal = document.getElementById('bizSuccessModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    document.querySelectorAll('input[name="bizType"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        document.querySelectorAll('.biz-cat-label').forEach(lbl => {
+          lbl.classList.remove('border-2', 'border-amber-400', 'bg-amber-50');
+          lbl.classList.add('border', 'border-slate-200');
+        });
+        const parent = e.target.closest('.biz-cat-label');
+        if (parent) {
+          parent.classList.add('border-2', 'border-amber-400', 'bg-amber-50');
+          parent.classList.remove('border', 'border-slate-200');
+        }
+      });
+    });
+
+    const createForm = document.getElementById('createProfileForm');
+    if (createForm) {
+      createForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('createProfileSubmitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Generating Profile & QR Standees...';
+
+        const bizType = document.querySelector('input[name="bizType"]:checked')?.value || 'restaurant';
+        const name = document.getElementById('newBizName').value.trim();
+        const tagline = document.getElementById('newBizTagline').value.trim();
+        const phone = document.getElementById('newBizPhone').value.trim();
+        const city = document.getElementById('newBizCity').value.trim();
+        const googleUrl = document.getElementById('newBizGoogleUrl').value.trim();
+        const plan = document.getElementById('newBizPlan').value;
+        const adminPin = document.getElementById('newBizAdminPin').value.trim();
+
+        try {
+          const res = await fetch('/api/businesses/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name,
+              type: bizType,
+              tagline,
+              phone,
+              city,
+              googleReviewUrl: googleUrl,
+              plan,
+              billingCycle: currentBillingCycle,
+              adminPin
+            })
+          });
+
+          const data = await res.json();
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Launch My Business & Generate QR Code 🚀';
+
+          if (data.success && data.business) {
+            closeCreateProfileModal();
+            createForm.reset();
+
+            document.getElementById('successBizName').textContent = `${data.business.name} (${data.business.categoryName})`;
+            document.getElementById('successCustomerLink').href = data.customerUrl;
+            document.getElementById('successAdminLink').href = data.adminUrl;
+
+            const successModal = document.getElementById('bizSuccessModal');
+            successModal.classList.remove('hidden');
+            successModal.classList.add('flex');
+          } else {
+            alert(data.error || 'Failed to create business profile.');
+          }
+        } catch (err) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Launch My Business & Generate QR Code 🚀';
+          alert('Network error while creating profile.');
+        }
+      });
+    }
+  </script>
+  <script src="js/interactive-effects.js"></script>
+</body>
+</html>

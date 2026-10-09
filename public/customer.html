@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Customer Loyalty Pass & Rewards</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#FFFDF9] min-h-screen text-slate-800 antialiased pb-20 selection:bg-amber-200">
+
+  <!-- Desktop App Frame Container (Responsive Mobile App Experience) -->
+  <div class="max-w-md mx-auto min-h-screen bg-white shadow-2xl relative flex flex-col border-x border-amber-100/60">
+
+    <!-- TOP APP BAR -->
+    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-amber-100 px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2.5">
+        <div id="bizLogoContainer" class="w-10 h-10 rounded-2xl bg-gradient-royal flex items-center justify-center text-white shadow-md shadow-orange-500/20">
+          <i id="bizCategoryIcon" class="fa-solid fa-crown text-lg"></i>
+        </div>
+        <div>
+          <h1 id="bizBrandName" class="text-sm font-extrabold text-slate-900 tracking-tight leading-none">The Royal Spice</h1>
+          <span id="bizBrandCategory" class="text-[10px] text-amber-700 font-semibold tracking-wide uppercase">BISTRO & CAFE</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span id="tableBadge" class="bg-amber-100 text-amber-900 text-[11px] font-bold px-2.5 py-1 rounded-full border border-amber-200 flex items-center shadow-xs">
+          📍 Table 4
+        </span>
+        <a id="adminLinkBtn" href="admin.html" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition" title="Business Admin">
+          <i class="fa-solid fa-lock text-xs"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- CUSTOMER PROFILE BANNER -->
+    <div class="px-4 pt-3 pb-2">
+      <div class="glass-panel rounded-2xl p-3 flex items-center justify-between border border-amber-200/80 bg-gradient-to-r from-amber-50/70 via-white to-orange-50/50">
+        <div class="flex items-center space-x-3">
+          <img id="customerAvatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=guest" alt="Avatar" class="w-11 h-11 rounded-2xl border-2 border-amber-400 bg-amber-50">
+          <div>
+            <div class="flex items-center space-x-1.5">
+              <span id="customerName" class="font-extrabold text-slate-800 text-sm">Guest Diner</span>
+              <i class="fa-solid fa-circle-check text-emerald-500 text-xs" title="Device Verified"></i>
+            </div>
+            <span id="customerMobile" class="text-xs text-slate-500 font-mono">+91 ••••• •••••</span>
+          </div>
+        </div>
+        <div class="text-right">
+          <a href="#myCouponsSection" class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-sm transition">
+            <i class="fa-solid fa-ticket text-[11px]"></i>
+            <span id="myCouponsCount">0</span>
+            <span>Offers</span>
+          </a>
+        </div>
+      </div>
+      <div id="deviceStatusBadge" class="mt-1.5 px-2 text-[10px] text-slate-500 flex items-center space-x-1">
+        <i class="fa-solid fa-shield-halved text-emerald-500"></i>
+        <span>Device Verified: 1 Device = 1 Loyalty Account</span>
+      </div>
+    </div>
+
+    <!-- MAIN SCROLLABLE CONTENT -->
+    <main class="flex-1 px-4 space-y-5 pt-2">
+
+      <!-- SECTION 1: GAMIFIED SCRATCH CARD -->
+      <section id="scratchSection" class="bg-gradient-to-b from-amber-50/60 to-white rounded-3xl p-4 border border-amber-200 shadow-sm relative overflow-hidden">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <span class="w-7 h-7 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xs">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </span>
+            <h2 class="text-sm font-extrabold text-slate-900 tracking-tight">Today's Visit Scratch Card</h2>
+          </div>
+          <span class="text-[10px] font-black uppercase tracking-wider bg-red-100 text-red-600 px-2 py-0.5 rounded-full animate-pulse">
+            Live Surprise
+          </span>
+        </div>
+
+        <p id="scratchInstruction" class="text-xs text-slate-600 mb-3 text-center">
+          Scratch the golden card below with your finger or mouse to reveal your reward! ✨
+        </p>
+
+        <!-- HTML5 Canvas Scratch Area -->
+        <div class="scratch-container beacon-pulse">
+          <div id="scratchCardUnderlay" class="scratch-underlay">
+            <!-- Dynamic Content populated via app.js -->
+          </div>
+          <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+        </div>
+
+        <!-- Hint Footer -->
+        <div class="mt-3 text-center">
+          <p class="text-[11px] text-amber-800 font-semibold flex items-center justify-center space-x-1">
+            <i class="fa-solid fa-sparkles text-amber-500"></i>
+            <span>Every scratch adds +1 Stamp towards the 50% Grand Bumper!</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 2: 6-STAMP LOYALTY CARD -->
+      <section id="stampsSection" class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-7 h-7 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xs">
+              <i class="fa-solid fa-stamp"></i>
+            </span>
+            <div>
+              <h3 class="text-sm font-extrabold text-slate-900 leading-tight">Visit Stamp Card</h3>
+              <p class="text-[10px] text-slate-500">Collect 5 stamps & unlock 6th Stamp 50% Grand Bumper</p>
+            </div>
+          </div>
+          <span id="stampProgressText" class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            0 of 6 Stamps
+          </span>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden my-3 border border-slate-200">
+          <div id="stampProgressBar" class="h-full bg-gradient-to-r from-emerald-400 via-emerald-500 to-amber-500 rounded-full transition-all duration-700 w-0"></div>
+        </div>
+
+        <!-- 6 Stamp Grid (Stamps 1 to 5 + 6th Bumper) -->
+        <div id="stampGrid" class="grid grid-cols-3 gap-2.5 pt-1">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+        <div class="mt-3 p-2.5 bg-amber-50 rounded-2xl border border-amber-200/80 flex items-center space-x-2.5">
+          <div class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-crown text-sm"></i>
+          </div>
+          <p class="text-[11px] text-amber-900 leading-tight">
+            <span class="font-bold">6th Visit Reward:</span> Complete 5 visits and your 6th stamp awards a guaranteed <span class="font-extrabold text-red-600">FLAT 50% OFF</span> bumper coupon!
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 3: SMART AI-POWERED GOOGLE REVIEW -->
+      <section id="reviewSection" class="bg-gradient-to-b from-white to-amber-50/30 rounded-3xl p-4 border border-amber-200/90 shadow-sm">
+        <div class="flex items-center space-x-2 mb-2">
+          <div class="w-7 h-7 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xs">
+            <i class="fa-brands fa-google"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-extrabold text-slate-900 leading-tight">Rate Your Experience</h3>
+            <p class="text-[10px] text-slate-500">Pick stars to get instant AI-crafted review suggestions</p>
+          </div>
+        </div>
+
+        <!-- Interactive 5 Star Selector -->
+        <div class="flex items-center justify-center space-x-2.5 my-3 py-2 bg-slate-50 rounded-2xl border border-slate-200">
+          <button type="button" onclick="setRating(1)" class="star-btn p-1 hover:scale-125 transition-transform" title="1 Star">
+            <i class="fa-solid fa-star text-amber-400 text-2xl"></i>
+          </button>
+          <button type="button" onclick="setRating(2)" class="star-btn p-1 hover:scale-125 transition-transform" title="2 Stars">
+            <i class="fa-solid fa-star text-amber-400 text-2xl"></i>
+          </button>
+          <button type="button" onclick="setRating(3)" class="star-btn p-1 hover:scale-125 transition-transform" title="3 Stars">
+            <i class="fa-solid fa-star text-amber-400 text-2xl"></i>
+          </button>
+          <button type="button" onclick="setRating(4)" class="star-btn p-1 hover:scale-125 transition-transform" title="4 Stars">
+            <i class="fa-solid fa-star text-amber-400 text-2xl"></i>
+          </button>
+          <button type="button" onclick="setRating(5)" class="star-btn p-1 hover:scale-125 transition-transform" title="5 Stars">
+            <i class="fa-solid fa-star text-amber-400 text-2xl"></i>
+          </button>
+        </div>
+
+        <!-- AI Generated Suggestions Chip List -->
+        <div class="space-y-1.5 mb-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-700 flex items-center">
+              <i class="fa-solid fa-sparkles text-amber-500 mr-1.5"></i>
+              AI Review Suggestions (Tap to choose):
+            </span>
+          </div>
+          <div id="aiSuggestionsContainer" class="grid grid-cols-1 gap-2">
+            <!-- Populated dynamically based on star click -->
+          </div>
+        </div>
+
+        <!-- Editable Review Text Box -->
+        <div class="mb-3">
+          <label class="block text-[11px] font-bold text-slate-600 mb-1">Your Review Text (Edit or Customize):</label>
+          <textarea id="reviewText" rows="3" class="w-full text-xs p-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 outline-none transition" placeholder="Tap any AI suggestion above or write your own..."></textarea>
+        </div>
+
+        <!-- Private Resolution Feedback Box (Shown for 1-3 Stars) -->
+        <div id="privateFeedbackBox" class="hidden mb-3 p-3 bg-rose-50 border border-rose-200 rounded-2xl">
+          <div class="flex items-center space-x-2 text-rose-800 text-xs font-bold mb-1">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            <span>Manager Resolution Desk (Optional)</span>
+          </div>
+          <p class="text-[10px] text-rose-700 mb-2">We deeply care about your experience. Tell us what went wrong and our manager will resolve it right away:</p>
+          <input type="text" id="privateFeedbackText" class="w-full text-xs p-2.5 rounded-xl border border-rose-300 bg-white focus:outline-none" placeholder="e.g. service was delayed, issue with order...">
+        </div>
+
+        <!-- Copy & Open Google Review Button -->
+        <button id="submitReviewBtn" class="w-full py-3 px-4 bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white rounded-2xl font-bold text-xs shadow-md transition flex items-center justify-center space-x-2">
+          <i class="fa-brands fa-google text-red-500 text-sm"></i>
+          <span>Copy & Post to Google Review</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1 opacity-70"></i>
+        </button>
+      </section>
+
+      <!-- SECTION 4: ATTACHED GOOGLE REVIEW PROFILE BOARD -->
+      <section id="googleBoardSection" class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm">
+        <!-- Google Profile Header Badge -->
+        <div class="p-3.5 bg-gradient-to-r from-blue-50/80 via-white to-amber-50/50 rounded-2xl border border-blue-100 flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center">
+              <i class="fa-brands fa-google text-blue-600 text-xl"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-1.5">
+                <h4 id="googleBoardTitle" class="text-xs font-extrabold text-slate-900">Google Business Profile</h4>
+                <i class="fa-solid fa-circle-check text-blue-600 text-xs" title="Official Verified Profile"></i>
+              </div>
+              <div class="flex items-center space-x-1 text-amber-500 text-xs mt-0.5">
+                <span id="googleAvgRating" class="font-extrabold text-slate-800">4.9</span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+            </div>
+          </div>
+          <span id="googleTotalReviews" class="text-[10px] font-bold text-slate-600 bg-white px-2.5 py-1 rounded-full border border-slate-200">
+            1,482 Reviews
+          </span>
+        </div>
+
+        <div class="flex items-center justify-between mb-2">
+          <h4 class="text-xs font-extrabold text-slate-800 uppercase tracking-wider">Live Verified Reviews</h4>
+          <span class="text-[10px] text-emerald-600 font-bold flex items-center">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping mr-1"></span>
+            Real-time feed
+          </span>
+        </div>
+
+        <!-- Live Reviews List -->
+        <div id="googleBoardReviews" class="space-y-2.5 max-h-72 overflow-y-auto pr-1">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </section>
+
+      <!-- SECTION 5: MY WON COUPONS & REWARDS -->
+      <section id="myCouponsSection" class="bg-white rounded-3xl p-4 border border-slate-200/90 shadow-sm">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <span class="w-7 h-7 rounded-xl bg-orange-500 text-white flex items-center justify-center text-xs">
+              <i class="fa-solid fa-ticket"></i>
+            </span>
+            <h3 class="text-sm font-extrabold text-slate-900">My Rewards & Coupons</h3>
+          </div>
+          <span class="text-[10px] text-slate-400">Show to staff at billing</span>
+        </div>
+
+        <div id="couponList" class="space-y-2.5">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER BRANDING -->
+    <footer class="mt-8 pb-6 text-center text-xs text-slate-400 px-4">
+      <p id="bizFooterAddress" class="font-semibold text-slate-500">The Royal Spice Bistro • MG Road, New Delhi</p>
+      <p class="text-[10px] mt-1">Powered by RevLoyal AI • Anti-Cheat Hardware Protected • 2026</p>
+      <div class="mt-2 flex items-center justify-center space-x-2">
+        <a id="bizAdminFooterLink" href="admin.html" class="inline-flex items-center space-x-1 text-[11px] text-amber-700 hover:text-amber-800 font-bold bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+          <i class="fa-solid fa-user-shield text-[10px]"></i>
+          <span>Open Business Admin</span>
+        </a>
+        <a href="/" class="inline-flex items-center space-x-1 text-[11px] text-slate-600 hover:text-slate-800 font-bold bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+          <i class="fa-solid fa-globe text-[10px]"></i>
+          <span>RevLoyal AI Home</span>
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- REGISTRATION MODAL (For New Customer / Device) -->
+  <div id="registrationModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-amber-200 animate-in fade-in zoom-in duration-200 max-h-[92vh] overflow-y-auto my-auto">
+      <div class="text-center mb-4">
+        <div class="w-14 h-14 bg-gradient-royal rounded-3xl mx-auto flex items-center justify-center text-white text-2xl shadow-lg shadow-orange-500/30 mb-3">
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <h3 id="regModalTitle" class="text-lg font-black text-slate-900 tracking-tight">Welcome to Rewards!</h3>
+        <p class="text-xs text-slate-500 mt-1">Enter details to unlock today's scratch card and start collecting 6 stamps!</p>
+      </div>
+
+      <!-- Anti-Cheat Alert Warning Box -->
+      <div id="antiCheatAlert" class="hidden mb-4 p-3 bg-rose-50 border border-rose-300 rounded-2xl">
+        <div class="flex items-start space-x-2">
+          <i class="fa-solid fa-triangle-exclamation text-rose-600 text-sm mt-0.5"></i>
+          <div>
+            <h5 class="text-xs font-bold text-rose-800">Anti-Cheat Security Warning</h5>
+            <p id="antiCheatText" class="text-[11px] text-rose-700 leading-tight mt-0.5"></p>
+            <button type="button" onclick="loginExistingAccount()" class="mt-2 text-[10px] font-bold text-rose-900 underline hover:text-rose-950">
+              Already registered on this device? Click here to Login
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <form id="registrationForm" class="space-y-3">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+          <div class="relative">
+            <i class="fa-regular fa-user absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+            <input type="text" id="regName" required class="w-full text-xs pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 outline-none" placeholder="e.g. Aditya Sharma">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Mobile Number *</label>
+          <div class="relative">
+            <span class="absolute left-3.5 top-2.5 text-slate-500 font-bold text-xs">+91</span>
+            <input type="tel" id="regMobile" required pattern="[0-9]{10}" maxlength="10" class="w-full text-xs pl-12 pr-3 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 focus:border-amber-400 outline-none font-mono" placeholder="9876543210">
+          </div>
+          <span class="text-[10px] text-slate-400 mt-0.5 block">10-digit mobile number for reward verification</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Birthday (DOB)</label>
+            <input type="date" id="regDob" class="w-full text-xs px-2.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 outline-none text-slate-600">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Area / Locality</label>
+            <input type="text" id="regAddress" class="w-full text-xs px-2.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-400 outline-none" placeholder="e.g. MG Road">
+          </div>
+        </div>
+
+        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-[10px] text-slate-500 flex items-center space-x-2">
+          <i class="fa-solid fa-lock text-emerald-600 text-xs"></i>
+          <span>Secure Device Lock: This browser will remember you automatically!</span>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-gradient-royal hover:opacity-95 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-orange-500/30 transition-transform active:scale-[0.98]">
+          Enter & Unlock Scratch Card 🎁
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MEGA BUMPER REWARD MODAL (When 6th stamp completes) -->
+  <div id="megaOfferModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 text-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border-4 border-yellow-300 text-center animate-in zoom-in duration-300 relative overflow-hidden max-h-[92vh] overflow-y-auto my-auto">
+      <!-- Glow particles -->
+      <div class="w-20 h-20 bg-white/20 rounded-full mx-auto flex items-center justify-center text-4xl mb-3 shadow-inner">
+        🏆
+      </div>
+      <span class="inline-block bg-red-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider mb-2 shadow">
+        ALL 6 STAMPS COMPLETED!
+      </span>
+      <h3 class="text-xl font-black tracking-tight leading-tight">GRAND BUMPER WINNER!</h3>
+      <p id="megaDiscountText" class="text-2xl font-black text-yellow-100 my-2 tracking-wide">FLAT 50% OFF!</p>
+      <p class="text-xs text-amber-100 mb-4 px-2">
+        Congratulations! You have successfully completed all visits. Enjoy your grand bumper offer on your next visit!
+      </p>
+
+      <div class="bg-white/95 text-slate-900 rounded-2xl p-3 border border-yellow-200 mb-4">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Your Exclusive Bumper Code</span>
+        <span id="megaCouponCode" class="text-base font-black font-mono tracking-widest text-amber-600 block my-1">VIP-BUMPER-50</span>
+        <button onclick="copyCouponCode(document.getElementById('megaCouponCode').textContent)" class="mt-1 text-xs font-bold text-slate-700 hover:text-black flex items-center justify-center space-x-1 mx-auto">
+          <i class="fa-regular fa-copy"></i>
+          <span>Copy Voucher Code</span>
+        </button>
+      </div>
+
+      <button onclick="closeMegaModal()" class="w-full py-2.5 bg-slate-950 hover:bg-black text-white font-bold text-xs rounded-xl shadow-lg transition">
+        Awesome, Claim Reward!
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/fingerprint.js"></script>
+  <script src="js/scratchcard.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/interactive-effects.js"></script>
+</body>
+</html>
